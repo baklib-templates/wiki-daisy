@@ -1,0 +1,76 @@
+{% layout 'documentation' %}
+{% assign sub_pages = page.children_in_list %}
+{% assign sub_pages_size = sub_pages | size %}
+{% assign default_avatar_url = 'images/avatar.svg' | asset_url %}
+
+{% comment %} 背景 Hero, 可选 {% endcomment %}
+{% if true %}
+  <div class="absolute inset-x-0 overflow-hidden -top-40 -z-10 transform-gpu blur-3xl sm:-top-80" aria-hidden="true">
+    <div class="relative -left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary to-secondary opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+  </div>
+{% endif %}
+
+
+{% comment %} 页面内容部分 {% endcomment %}
+<turbo-frame id="main-content">
+  <div class="flex p-5 md:p-10 md:pt-10 xl:gap-20 max-w-full overflow-x-auto">
+      <article class="flex flex-col">
+          {% # 面包屑导航 %}
+          <div class="text-sm breadcrumbs pt-0 pb-4">
+            {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
+          </div>
+          {% # 页面正文 %}
+          {% render 'page', page: page, default_avatar_url: default_avatar_url %}
+      </article>
+      <!-- in page nav -->
+      <nav class="hidden w-64 xl:block shrink-0 print:hidden" data-controller="menu">
+        <div class="fixed w-64 pt-12 pb-8 top-12">
+          <div class="border-l border-slate-200 dark:border-slate-800 h-[680px]">
+            <div class="text-sm dark:bg-slate-900 space-y-3 overflow-y-hidden hover:overflow-y-auto max-h-full" data-menu-target="links"></div>
+          </div>
+        </div>
+      </nav>
+  </div>
+</turbo-frame>
+
+
+{% schema %}
+  {
+    "name": "Page Detail",
+    "description": "The content page template",
+    "thumb_url": "images/theme/page.png",
+    "preview_image_urls": [
+      "images/theme/page.png"
+    ],
+    "sub_page_templates": ["page"],
+    "settings": [
+      {
+        "id": "tags",
+        "type": "tag_picker",
+        "multiple": true,
+        "label": "t:settings_schema.page.settings.tags.label"
+      },
+      {
+        "id": "show_new_tag",
+        "type": "checkbox",
+        "default": "false",
+        "label": "展示 New 标签",
+        "info": "作为最新发布的内容，链接旁添加 New 标签"
+      },
+      {
+        "id": "title",
+        "type": "text",
+        "readonly": true,
+        "label": "标题",
+        "info": "知识库同步，不可编辑"
+      },
+      {
+        "id": "content",
+        "type": "richtext",
+        "label": "t:settings_schema.page.settings.content.label",
+        "readonly": true,
+        "info": "t:settings_schema.page.settings.content.info"
+      }
+    ]
+  }
+{% endschema %}

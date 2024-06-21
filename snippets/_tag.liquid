@@ -1,0 +1,9 @@
+{% if tag %}
+  <span
+    class="btn btn-sm rounded-full"
+    style="
+      background-color: hsl({{ tag.color_hls[0] }}, {{ tag.color_hls[1] }}%, 90%);
+      color: {{ tag.color }};
+    "
+  ># {{ tag.name }}</span>
+{% endif %}

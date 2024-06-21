@@ -1,0 +1,11 @@
+<turbo-frame id="{{ turbo_frame_request_id }}" class="relative hidden md:block">
+  {% paginate_tag pages, per: 24 %}
+    {% for page in pages %}
+      {% render 'tree', page: page, expanded_ids: expanded_ids, selected_ids: selected_ids %}
+    {% endfor %}
+    <!-- Pagination -->
+    <div class="btm-nav w-full overflow-x-auto">
+      {% render 'paginate', paginate: paginate %}
+    </div>
+  {% endpaginate_tag %}
+</turbo-frame>
