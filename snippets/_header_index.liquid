@@ -22,7 +22,7 @@
     <div class="navbar-start">
       <a href="/" class="flex-0 btn btn-ghost px-2">
         <h1 class="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50">
-          {{ site.name }}
+          <img src="{{ site.favicon_url | default: logo  }}" class="h-8 mr-3" alt="{{ site.name }} Logo">
         </h1>
       </a>
     </div>
