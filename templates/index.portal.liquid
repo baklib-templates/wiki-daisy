@@ -3,11 +3,11 @@
 
 <div class="hero bg-base-200">
   <div class="hero-content text-center">
-    <div class="max-w-2xl py-8 lg:py-16">
-      <h1 class="text-5xl font-bold leading-normal">Baklib 模板开发中心</h1>
-      <p class="py-6 text-md">借助Baklib强大的 CMS 内容管理能力和混合 Headless CMS系统设计，实现内容与界面分离的新型网页构建器。借助低代码开发实现网站前端界面的高度定制化。</p>
-      <a href="/get-started/introduction" class="btn btn-primary bg-primary">模板介绍</a>
-      <a href="/overview" target="_blank" class="btn btn-secondary">模板开发</a>
+    <div class="max-w-lg py-8 lg:py-16">
+      <h1 class="text-5xl font-bold leading-normal">{{ site.name }}</h1>
+      <p class="py-6">{{ site.settings.description }}</p>
+      <a href="/about" class="btn btn-primary bg-primary">在线查看</a>
+      <a href="/s/ebook" target="_blank" class="btn btn-secondary">打印下载</a>
     </div>
   </div>
 </div>
@@ -50,8 +50,8 @@
 
 {% schema %}
   {
-    "name": "Portal",
-    "description": "Ideal for feature-rich portal site",
+    "name": "Plan Book ",
+    "description": "客户方案书制作工具",
     "thumb_url": "images/theme/index-portal.png",
     "preview_image_urls": [
       "images/theme/index-portal.png"
