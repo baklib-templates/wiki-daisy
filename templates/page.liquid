@@ -1,46 +1,82 @@
-{% layout 'documentation' %}
-{% assign sub_pages = page.children_in_list %}
-{% assign sub_pages_size = sub_pages | size %}
-{% assign default_avatar_url = 'images/avatar.svg' | asset_url %}
+{% assign pages = page.pages_in_list %}
 
-{% comment %} 背景 Hero, 可选 {% endcomment %}
-{% if true %}
-  <div class="absolute inset-x-0 overflow-hidden -top-40 -z-10 transform-gpu blur-3xl sm:-top-80" aria-hidden="true">
-    <div class="relative -left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary to-secondary opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-  </div>
-{% endif %}
+{% paginate_tag pages, per: 1 %}
+  <div class="max-w-7xl mx-auto h-screen bg-white rounded-lg p-5 md:p-10 md:pt-10 xl:gap-20">
 
-
-{% comment %} 页面内容部分 {% endcomment %}
-<turbo-frame id="main-content">
-  <div class="flex p-5 md:p-10 md:pt-10 xl:gap-20 max-w-full overflow-x-auto">
-      <article class="flex flex-col">
-          {% # 面包屑导航 %}
-          <div class="text-sm breadcrumbs pt-0 pb-4">
-            {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
+    {% for page in pages %}
+      <!-- ========== MAIN CONTENT ========== -->
+      <turbo-frame id="main-content">
+        <article class="">
+          <h1 class="text-center mb-2 text-2xl font-bold sm:text-3xl xl:text-4xl">
+            {{ page.settings.title }}
+          </h1>
+          <div class="mt-8 flow-root">
+            <div class="overflow-auto">
+              <div data-controller="view_images2"
+                class="ProseMirror prose sm:prose-base lg:prose-md focus:outline-none dark:prose-invert prose-a:text-blue-600">
+                {{ page.settings.content }}
+              </div>
+            </div>
           </div>
-          {% # 页面正文 %}
-          {% render 'page', page: page, default_avatar_url: default_avatar_url %}
-      </article>
-      <!-- in page nav -->
-      <nav class="hidden w-64 xl:block shrink-0 print:hidden" data-controller="menu">
-        <div class="fixed w-64 pt-12 pb-8 top-12">
-          <div class="border-l border-slate-200 dark:border-slate-800 h-[680px]">
-            <div class="text-sm dark:bg-slate-900 space-y-3 overflow-y-hidden hover:overflow-y-auto max-h-full" data-menu-target="links"></div>
-          </div>
-        </div>
-      </nav>
-  </div>
-</turbo-frame>
+        </article>
+      </turbo-frame>
+    {% endfor %}
 
+  </div>
+  <!-- ========== END SECONDARY CONTENT ========== -->
+
+  <!-- Footer Section -->
+  <div class="btm-nav bg-teal-600 border-t border-teal-100">
+
+    {% if paginate.total_pages > 1 %}
+      {% comment %} 上一页 {% endcomment %}
+      <a {% if paginate.prev_page %}href="{{ paginate.url_for[paginate.prev_page] }}"{% else %}disabled{% endif %} class="">
+        <span class="sr-only">Previous</span>
+        <svg class="w-8 h-8" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
+        </svg>
+        <span class="btm-nav-label">上一页</span>
+      </a>
+    {% endif %}
+
+    <a href="javascript: window.open('{{ site.url }}/s/ebook?page={{ page.path }}', '_blank').print();">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+      <span class="btm-nav-label">下载</span>
+    </a>
+
+    {% if paginate.total_pages > 1 %}
+      {% comment %} 下一页 {% endcomment %}
+      <a {% if paginate.next_page %}href="{{ paginate.url_for[paginate.next_page] }}"{% else %}disabled{% endif %} class="">
+        <span class="sr-only">Next</span>
+        <svg class="w-8 h-8" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+        </svg>
+        <span class="btm-nav-label">下一页</span>
+      </a>
+    {% endif %}
+  </div>
+
+{% endpaginate_tag %}
+<!--/ article-->
 
 {% schema %}
-  {
-    "name": "Page Detail",
-    "description": "The content page template",
-    "thumb_url": "images/theme/page.png",
+    {
+    "name": "Page eBook",
+    "description": "The Page as a ebook plan section",
+    "thumb_url": "images/theme/page-channel.png",
     "preview_image_urls": [
-      "images/theme/page.png"
+      "images/theme/page-channel.png"
     ],
     "sub_page_templates": ["page"],
     "settings": [
@@ -51,11 +87,11 @@
         "label": "t:settings_schema.page.settings.tags.label"
       },
       {
-        "id": "show_new_tag",
-        "type": "checkbox",
-        "default": "false",
-        "label": "展示 New 标签",
-        "info": "作为最新发布的内容，链接旁添加 New 标签"
+        "id": "icon",
+        "type": "image_picker",
+        "ratio": "1:1",
+        "width": 60,
+        "label": "图标"
       },
       {
         "id": "title",
@@ -72,5 +108,5 @@
         "info": "t:settings_schema.page.settings.content.info"
       }
     ]
-  }
+    }
 {% endschema %}
