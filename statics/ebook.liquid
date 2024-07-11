@@ -1,6 +1,6 @@
 {%# 客户方案书一页预览并打印 %}
 {% assign param = params["page"] %}
-{% assign pages = site.pages[param].pages_in_list | limit: 23 %}
+{% assign pages = site.pages[param].pages_in_list | limit: 50 %}
 
 <div class="max-w-7xl mx-auto bg-white">
   <div class="flex justify-between bg-orange-100 p-4 print:hidden">
