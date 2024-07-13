@@ -12,7 +12,7 @@
           {{ page.settings.content }}
         </div>
         <ul class="menu bg-base-200 rounded-box w-full my-5">
-          <li class="menu-title">目录</li>
+          <li class="menu-title border-b border-dotted">目录</li>
           {% for page in page.children_in_list %}
             <li><a href="{{ page.path }}" class="border-b border-dotted">{{ page.link_text }}</a></li>
           {% endfor %}
