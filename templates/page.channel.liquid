@@ -58,7 +58,7 @@
         <span class="btm-nav-label text-sm">导航</span>
       </div>
       <ul tabindex="0" class="dropdown-content menu bg-slate-600 rounded-box z-[1] w-52 p-2 shadow">
-        {% for nav_page in channel.children_in_list %}
+        {% for nav_page in pages %}
           <li><a href="{{ nav_page.path }}">{{ nav_page.link_text }}</a></li>
         {% endfor %}
         <li><a>{{params['path']}}</a></li>
