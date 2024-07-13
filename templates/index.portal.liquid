@@ -1,6 +1,8 @@
 {% assign default_hero_image = 'images/hero.jpg' | asset_url %}
 {% assign hot_tags = page.settings.hot_tags | split: ',' %}
 
+{% render "header_index" %}
+
 <div class="hero bg-base-200">
   <div class="hero-content text-center">
     <div class="max-w-lg py-8 lg:py-16">
@@ -11,6 +13,8 @@
     </div>
   </div>
 </div>
+
+{% render "footer" %}
 
 {% schema %}
   {
