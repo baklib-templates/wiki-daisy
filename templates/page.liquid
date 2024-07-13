@@ -1,5 +1,4 @@
 {% assign pages = page.pages_in_list %}
-{% assign parent_page = page.parent %}
 
 {% paginate_tag pages, per: 1 %}
   <div class="max-w-7xl mx-auto min-h-screen bg-white rounded-lg p-5 md:p-10 xl:gap-20">
@@ -59,7 +58,7 @@
         <span class="btm-nav-label text-sm">导航</span>
       </div>
       <ul tabindex="0" class="dropdown-content menu bg-slate-600 rounded-box z-[1] w-52 p-2 shadow">
-        {% for nav_page in parent_page.pages_in_list %}
+        {% for nav_page in pages %}
           <li><a href="{{ nav_page.path }}">{{ nav_page.link_text }}</a></li>
         {% endfor %}
         <li>
