@@ -63,7 +63,7 @@
         {% endfor %}
         <div class="divider"></div>
         <li>
-          <a href="javascript: window.open('{{ site.url }}/s/ebook?page={{ page.path }}', '_blank').print();">
+          <a href="javascript: window.open('{{ site.url }}/s/ebook?page={{ page.parent.path }}', '_blank').print();">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 w-5"
