@@ -1,28 +1,43 @@
 {%# 方案书栏目 封面 %}
 <div class="max-w-7xl mx-auto min-h-screen bg-white rounded-lg p-5 md:p-10 xl:gap-20">
-  <ul class="menu bg-base-200 rounded-box w-56">
-    {% for page in page.children_in_list %}
-      <li><a href="{{ page.path }}">{{ page.link_text }}</a></li>
-    {% endfor %}
-    <div class="divider"></div>
-    <li>
-      <a href="javascript: window.open('{{ site.url }}/s/ebook?page={{ page.path }}', '_blank').print();">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-        </svg>
-        <span class="btm-nav-label text-sm">下载方案</span>
-      </a>
-    </li>
-  </ul>
+
+  <div class="hero bg-base-200 min-h-screen">
+    <div class="hero-content flex-col lg:flex-row">
+      <img
+        src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+        class="max-w-sm rounded-lg shadow-2xl" />
+      <div>
+        <h1 class="text-5xl font-bold">Box Office News!</h1>
+        <p class="py-6">
+          Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
+          quasi. In deleniti eaque aut repudiandae et a id nisi.
+        </p>
+        <ul class="menu bg-base-200 rounded-box w-56">
+          {% for page in page.children_in_list %}
+            <li><a href="{{ page.path }}">{{ page.link_text }}</a></li>
+          {% endfor %}
+          <div class="divider"></div>
+        </ul>
+        <a href="javascript: window.open('{{ site.url }}/s/ebook?page={{ page.path }}', '_blank').print();" class="btn btn-primary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          <span class="btm-nav-label text-sm">下载方案</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
 </div>
 
 
