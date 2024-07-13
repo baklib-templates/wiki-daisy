@@ -62,7 +62,7 @@
         {% for nav_page in channel.children_in_list %}
           <li><a href="{{ nav_page.path }}">{{ nav_page.link_text }}</a></li>
         {% endfor %}
-        <li><a>{{params}}</a></li>
+        <li><a>{{params['path']}}</a></li>
         <li>
           <a href="javascript: window.open('{{ site.url }}/s/ebook?page={{ page.path }}', '_blank').print();">
             <svg
