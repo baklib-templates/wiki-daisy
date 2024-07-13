@@ -11,7 +11,7 @@
         <div class="mt-4 ProseMirror prose sm:prose-base lg:prose-md focus:outline-none dark:prose-invert prose-a:text-blue-600">
           {{ page.settings.content }}
         </div>
-        <ul class="menu bg-base-200 rounded-box w-64 my-5">
+        <ul class="menu bg-base-200 rounded-box w-full my-5">
           <li class="menu-title">目录</li>
           {% for page in page.children_in_list %}
             <li><a href="{{ page.path }}" class="border-b border-dotted">{{ page.link_text }}</a></li>
