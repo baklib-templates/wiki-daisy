@@ -1,6 +1,10 @@
 {%# 方案书栏目 封面 %}
 <div class="max-w-7xl mx-auto min-h-screen bg-white rounded-lg p-5 md:p-10 xl:gap-20">
-
+  <ul class="menu bg-base-200 rounded-box w-56">
+    {% for page in page.children_in_list %}
+      <li><a href="{{ page.path }}">{{ page.link_text }}</a></li>
+    {% endfor %}
+  </ul>
 </div>
 
 
