@@ -1,0 +1,30 @@
+Section 
+
+
+{% schema %}
+    {
+    "name": "Section",
+    "description": "The Section",
+    "thumb_url": "images/theme/page.png",
+    "preview_image_urls": [
+      "images/theme/page.png"
+    ],
+    "sub_page_templates": [],
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "readonly": true,
+        "label": "标题",
+        "info": "知识库同步，不可编辑"
+      },
+      {
+        "id": "content",
+        "type": "richtext",
+        "label": "t:settings_schema.page.settings.content.label",
+        "readonly": true,
+        "info": "t:settings_schema.page.settings.content.info"
+      }
+    ]
+    }
+{% endschema %}
