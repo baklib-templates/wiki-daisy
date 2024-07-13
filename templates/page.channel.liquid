@@ -11,7 +11,7 @@
         <p class="py-6">
           {{ page.settings.content }}
         </p>
-        <ul class="menu bg-base-200 rounded-box w-56">
+        <ul class="menu bg-base-200 rounded-box w-56 my-2">
           <li class="menu-title">目录</li>
           {% for page in page.children_in_list %}
             <li><a href="{{ page.path }}">{{ page.link_text }}</a></li>
