@@ -5,23 +5,8 @@
 
     {% for page in pages %}
       <!-- ========== MAIN CONTENT ========== -->
-      <turbo-frame id="main-content">
-        <article class="">
-          <h1 class="text-center mb-2 text-2xl font-bold sm:text-3xl xl:text-4xl">
-            {{ page.settings.title }}
-          </h1>
-          <div class="mt-8 flow-root">
-            <div class="overflow-auto">
-              <div data-controller="view_images2"
-                class="ProseMirror prose sm:prose-base lg:prose-md focus:outline-none dark:prose-invert prose-a:text-blue-600">
-
-                {{ page.settings.content }}
-                
-              </div>
-            </div>
-          </div>
-        </article>
-      </turbo-frame>
+      <turbo-frame src="{{ page.path }}"></turbo-frame>
+      
     {% endfor %}
 
   </div>
