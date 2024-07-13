@@ -16,7 +16,6 @@
           {% for page in page.children_in_list %}
             <li><a href="{{ page.path }}">{{ page.link_text }}</a></li>
           {% endfor %}
-          <div class="divider"></div>
         </ul>
         <a href="javascript: window.open('{{ site.url }}/s/ebook?page={{ page.path }}', '_blank').print();" class="btn btn-primary">
           <svg
