@@ -1,5 +1,5 @@
 {%# 方案书栏目 封面 %}
-<div class="max-w-7xl mx-auto min-h-screen rounded-lg p-5 md:p-10 xl:gap-20">
+<div class="max-w-7xl mx-auto min-h-screen rounded-lg p-5 md:p-10">
 
   <div class="hero">
     <div class="hero-content flex-col lg:flex-row gap-8 lg:gap-20">
@@ -11,7 +11,7 @@
         <div class="mt-4 ProseMirror prose sm:prose-base lg:prose-md focus:outline-none dark:prose-invert prose-a:text-blue-600">
           {{ page.settings.content }}
         </div>
-        <ul class="menu bg-base-200 rounded-box w-56 my-5">
+        <ul class="menu bg-base-200 rounded-box w-64 my-5">
           <li class="menu-title">目录</li>
           {% for page in page.children_in_list %}
             <li><a href="{{ page.path }}">{{ page.link_text }}</a></li>
