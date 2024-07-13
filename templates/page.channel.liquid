@@ -11,7 +11,7 @@
         <div class="prose">
           {{ page.settings.content }}
         </div>
-        <ul class="menu bg-base-200 rounded-box w-56 my-2">
+        <ul class="menu bg-base-200 rounded-box w-56 my-5">
           <li class="menu-title">目录</li>
           {% for page in page.children_in_list %}
             <li><a href="{{ page.path }}">{{ page.link_text }}</a></li>
