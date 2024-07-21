@@ -11,9 +11,9 @@
     "theme_support_url": "https://help.baklib.cn/themes/daisy-wiki/settings",
     "theme_thumb_url": "images/theme/thumb.png",
     "theme_preview_images": [
+      "images/theme/daisy-wiki.png",
       "images/theme/index.png",
-      "images/theme/index-documentation.png",
-      "images/theme/index-portal.png",
+      "images/theme/examples.png",
       "images/theme/page-channel.png",
       "images/theme/page.png"
     ],
