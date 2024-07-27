@@ -22,7 +22,7 @@
           href="{{ page.path }}"
           data-turbo-frame="main-content"
           data-turbo-action="advance"
-          class="font-semibold"
+          class="font-semibold truncate"
           data-action="click->navtree#toggleActive"
           @click="document.getElementById('my-drawer-2').click();"
         >
@@ -53,7 +53,7 @@
       href="{{ page.path }}"
       data-turbo-frame="main-content"
       data-turbo-action="advance"
-      class="text-normal"
+      class="text-normal truncate"
       data-action="click->navtree#toggleActive"
       @click="document.getElementById('my-drawer-2').click();"
     >
