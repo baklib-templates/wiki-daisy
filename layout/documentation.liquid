@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="{{ site.language }}" class="scroll-smooth">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Baklib">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% meta_tags %}
+    {{ 'editor.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
+    {{ 'javascripts/main.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
+    {{ 'css/main.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
+
+    {%# 切换theme主题色 %}
+    {{ 'javascripts/theme-change-2.0.2.js' | asset_url | script_tag: data-turbo-track: 'reload' }}
+
+    {%# TIPS：在低代码平台开发时，请打开下一行代码注释 %}
+    {% if false %}
+      <link href="https://unpkg.com/daisyui@latest/dist/full.css" rel="stylesheet">
+      <script src="https://cdn.tailwindcss.com"></script>
+    {% endif %}
+    {% if false %} {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
+    {{ site.settings.head_html }}
+  </head>
+  <body>
+    <div class="drawer lg:drawer-open">
+      <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-content flex flex-col">
+        <!-- Header Section -->
+        {% render 'header_doc', settings: site.settings, page: page %}
+        <!-- Main Content Section -->
+        <div class="relative">{{ content_for_layout }}</div>
+      </div>
+      <!-- Sidebar Section -->
+      {% render 'sidebar', settings: site.settings, page: page %}
+    </div>
+    <!-- Footer Section -->
+    {%# render 'footer', settings: site.settings %}
+    {%# render 'plugins', settings: site.settings %}
+  </body>
+</html>

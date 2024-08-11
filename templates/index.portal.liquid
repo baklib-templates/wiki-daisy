@@ -1,0 +1,69 @@
+{% assign default_hero_image = 'images/hero.jpg' | asset_url %}
+{% assign hot_tags = page.settings.hot_tags | split: ',' %}
+
+<div class="hero bg-base-200">
+  <div class="hero-content text-center">
+    <div class="max-w-lg py-8 lg:py-16">
+      <h1 class="text-5xl font-bold leading-normal">Daisy Wiki</h1>
+      <p class="py-6">DaisyUI 为Tailwind CSS 最流行的组件库之一，通过 DaisyUI 丰富的组件库快速构建漂亮的 Wiki 内容网站，你只需要复制粘贴、信手拈来。</p>
+      <a href="/s/get-started" class="btn btn-primary bg-primary">Get Started</a>
+      <a href="https://daisyui.com/" target="_blank" class="btn btn-secondary">Go DaisyUI</a>
+    </div>
+  </div>
+</div>
+
+<div class="max-w-7xl mx-auto">
+
+  <div class="diff aspect-[16/9] my-12 lg:my-20">
+    <div class="diff-item-1">
+      <div class="bg-secondary text-primary-content text-9xl font-black grid place-content-center">DAISY</div>
+    </div>
+    <div class="diff-item-2">
+      <div class="bg-primary text-9xl font-black grid place-content-center">WIKI</div>
+    </div>
+    <div class="diff-resizer"></div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 my-12">
+    <article class="prose border-r">
+      <h1 class="text-secondary">什么是 Daisy UI?</h1>
+      <p>
+        DaisyUI 是流行 CSS 框架 Tailwind CSS 的时尚实用插件。
+        美观性和功能性需要齐头并进，才能为用户创造引人入胜且高效的体验，DaisyUI 刚好做到了这一点。
+      </p>
+      <p>
+        TailwindCSS 是一个高度可定制的低级 CSS 框架。DaisyUI 的作用是提供一组丰富的预构建组件，可以使用 TailwindCSS 在项目中轻松集成和自定义这些组件。
+        这意味着您可以享受 Tailwind 提供的所有自定义优势，同时享受更传统的 UI 套件的速度和简便性。
+      </p>
+      <!-- ... -->
+    </article>
+    <article class="prose">
+      <h1 class="text-primary">什么是 Daisy Wiki?</h1>
+      <p>
+        Daisy Wiki 是通过 DaisyUI 打造的一个 Wiki 站点模板，如果你希望创建一个内容驱动型的网站，又希望前端具有更加现代化的用户体验，则选择这个模板就好了。
+      </p>
+
+      <p>
+        操作方式很简单，你只需要在工作台 1）创建一个知识库；2）在[模板市场]中选择[Daisy Wiki]模板；3）点击[安装]，三步操作完成，一个崭新的 Wiki站点就呈现在你面前了。
+        模板预设了 10+主题切换，以及知识库界面包括树状菜单、文档排版、页面导航等。
+      </p>
+      <!-- ... -->
+    </article>
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Portal",
+    "description": "Ideal for feature-rich portal site",
+    "thumb_url": "images/theme/index-portal.png",
+    "preview_image_urls": [
+      "images/theme/index-portal.png"
+    ],
+    "sub_page_templates": ["page"],
+    "settings": [
+
+      ]
+  }
+{% endschema %}
