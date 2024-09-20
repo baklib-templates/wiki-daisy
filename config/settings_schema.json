@@ -3,7 +3,7 @@
     "name": "theme_info",
     "theme_name": "daisy_wiki",
     "theme_label": "t:theme_label",
-    "theme_version": "1.0.0",
+    "theme_version": "v1.0.0",
     "theme_scope": "wiki",
     "theme_author": "Baklib",
     "theme_description": "t:theme_description",
@@ -120,7 +120,7 @@
         "label": "Features One",
         "rows": 10,
         "placeholder": "some html code",
-        "info":"预设的 HTML 代码块，前端调用方法：site.settings.features_one"
+        "info": "预设的 HTML 代码块，前端调用方法：site.settings.features_one"
       },
       {
         "id": "features_two",
@@ -128,7 +128,7 @@
         "label": "Features Two",
         "rows": 10,
         "placeholder": "some html code",
-        "info":"预设的 HTML 代码块，前端调用方法：site.settings.features_two"
+        "info": "预设的 HTML 代码块，前端调用方法：site.settings.features_two"
       },
       {
         "id": "features_three",
@@ -136,7 +136,7 @@
         "label": "Features Three",
         "rows": 10,
         "placeholder": "some html code",
-        "info":"预设的 HTML 代码块，前端调用方法：site.settings.features_three"
+        "info": "预设的 HTML 代码块，前端调用方法：site.settings.features_three"
       }
     ]
   }
