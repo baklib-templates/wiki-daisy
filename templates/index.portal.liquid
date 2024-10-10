@@ -1,59 +1,42 @@
+{% # 列表指南- Channel %}
+{% assign card_pages = site.pages['/'].children_in_nav_menu %}
+{% assign limit_page_count = page.settings.index_card_page_count | default: 5 %}
+
 <!-- Hero Section -->
 {% render 'hero', page: page %}
 
-<section id="table-of-contents" aria-labelledby="table-of-contents-title" class="sm:py-6 lg:py-12">
-  <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:max-w-4xl lg:px-12">
-    <h2 class="inline-flex items-center rounded-full px-4 py-1 text-blue-600 ring-1 ring-inset ring-blue-600"
-      id="table-of-contents-title">
-      <span class="font-mono text-sm" aria-hidden="true">01</span>
-      <span class="ml-3 h-3.5 w-px bg-blue-600/20"></span>
-      <span class="ml-3 text-base font-medium tracking-tight">Table of contents</span>
-    </h2>
+<section id="table-of-contents" aria-labelledby="table-of-contents-title" class="">
+  <div class="mx-auto md:max-w-2xl lg:max-w-4xl px-4">
     <div>
-      <ol role="list" class="mt-16 space-y-10 sm:space-y-16">
-        <li>
-          <h3 class="font-display text-3xl font-bold tracking-tight text-slate-900">Getting started</h3>
-          <ol role="list"
-            class="mt-8 divide-y divide-slate-300/30 rounded-2xl bg-slate-50 px-6 py-3 text-base tracking-tight sm:px-8 sm:py-7">
-            <li class="flex justify-between py-3" aria-label="Getting started on page 1"><span
-                class="font-medium text-slate-900" aria-hidden="true">Getting started</span><span
-                class="font-mono text-slate-400" aria-hidden="true">1</span></li>
-            <li class="flex justify-between py-3" aria-label="Intro to Figma on page 15"><span
-                class="font-medium text-slate-900" aria-hidden="true">Intro to Figma</span><span
-                class="font-mono text-slate-400" aria-hidden="true">15</span></li>
-            <li class="flex justify-between py-3" aria-label="Setting up your first artboard on page 20"><span
-                class="font-medium text-slate-900" aria-hidden="true">Setting up your first artboard</span><span
-                class="font-mono text-slate-400" aria-hidden="true">20</span></li>
-          </ol>
-        </li>
-        <li>
-          <h3 class="font-display text-3xl font-bold tracking-tight text-slate-900">Fundamentals</h3>
-          <ol role="list"
-            class="mt-8 divide-y divide-slate-300/30 rounded-2xl bg-slate-50 px-6 py-3 text-base tracking-tight sm:px-8 sm:py-7">
-            <li class="flex justify-between py-3" aria-label="Strokes and fills on page 21"><span
-                class="font-medium text-slate-900" aria-hidden="true">Strokes and fills</span><span
-                class="font-mono text-slate-400" aria-hidden="true">21</span></li>
-            <li class="flex justify-between py-3" aria-label="End points on page 22"><span
-                class="font-medium text-slate-900" aria-hidden="true">End points</span><span
-                class="font-mono text-slate-400" aria-hidden="true">22</span></li>
-            <li class="flex justify-between py-3" aria-label="Bezier curves on page 26"><span
-                class="font-medium text-slate-900" aria-hidden="true">Bezier curves</span><span
-                class="font-mono text-slate-400" aria-hidden="true">26</span></li>
-            <li class="flex justify-between py-3" aria-label="Designing on a grid on page 31"><span
-                class="font-medium text-slate-900" aria-hidden="true">Designing on a grid</span><span
-                class="font-mono text-slate-400" aria-hidden="true">31</span></li>
-            <li class="flex justify-between py-3" aria-label="Vector shapes on page 45"><span
-                class="font-medium text-slate-900" aria-hidden="true">Vector shapes</span><span
-                class="font-mono text-slate-400" aria-hidden="true">45</span></li>
-          </ol>
-        </li>
-      </ol>
-      <div class="mt-10 flex justify-center"><button type="button"
-          class="flex items-center text-base font-medium tracking-tight text-slate-900 hover:text-slate-700">See
-          more<svg aria-hidden="true" viewBox="0 0 24 24" class="ml-2 h-6 w-6">
-            <path d="m17 14-5 5-5-5M12 18.5V5" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg></button></div>
+      <!-- 栏目列表 -->
+      {% paginate_tag card_pages, per: limit_page_count %}
+        <ol role="list" class="mt-4 md:mt-8 space-y-4 sm:space-y-8">
+          {% for card_page in card_pages %}
+            <li>
+              <div class="flex items-center justify-start">
+                {% if card_page.settings.icon %}
+                  <span class="mr-4"><img src="{{ card_page.settings.icon }}" class="h-10"/> </span>
+                {% endif %}
+                <h3 class="font-display text-2xl lg:text-3xl font-bold line-clamp-1">{{ card_page.link_text}}</h3>
+              </div>
+          
+              {% assign sub_pages = card_page.children_in_list | limit: limit_page_count %}
+              <!-- 页面列表 -->
+              <ol role="list" class="mt-8 divide-y divide-base-300 rounded-2xl bg-base-200 px-6 py-3 text-base sm:px-8 sm:py-7">
+                {% for sub_page in sub_pages %}
+                  <li class="flex justify-between py-3 hover:underline hover:bg-base-300" aria-label="{{ sub_page.link_text }} ">
+                    <a href="{{ sub_page.path }}" class="font-medium" aria-hidden="true">{{ sub_page.link_text }}</a>
+                    <span class="font-mono text-base-400" aria-hidden="true">{{ forloop.index }}</span>
+                  </li>
+                {% endfor %}
+              </ol>
+            </li>
+          {% endfor %}
+        </ol>
+        <div class="mt-10 flex justify-center">
+          {% render 'paginate', paginate: paginate %}
+        </div>
+      {% endpaginate_tag %}
     </div>
   </div>
 </section>

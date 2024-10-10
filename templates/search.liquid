@@ -27,16 +27,16 @@
         {% if search.page_number == 1 %}
           {% for link in search.extends %}
             <div class="rounded-md md:p-4 border-b border-accent hover:bg-accent-100">
-              <a class="text-lg font-bold leading-normal md:text-xl hover:underline search-highlight-block" href="{{ link.url }}">{{ link.link_text }}</a>
-              <p class="text-sm ml-4 line-clamp-2 text-slate-500 search-highlight-block">{{ link.url }}</p>
+              <a class="text-lg md:text-xl hover:underline search-highlight-block" href="{{ link.url }}">{{ link.link_text }}</a>
+              <p class="text-sm mt-2 ml-4 line-clamp-2 text-slate-500 search-highlight-block">{{ link.url }}</p>
             </div>
           {% endfor %}
         {% endif %}
         {% paginate_tag search.pages, as: 'pages', per: 10 %}
           {% for page in pages %}
             <div class="rounded-md md:p-4 border-b border-accent hover:bg-accent-100">
-              <a class="text-lg font-bold leading-normal md:text-xl hover:underline search-highlight-block" href="{{ page.url }}">{{ page.highlighted_search_title }}</a>
-              <p class="text-sm ml-4 line-clamp-2 text-slate-500 search-highlight-block">{{ page.highlighted_search_content }}</p>
+              <a class="text-lg md:text-xl hover:underline search-highlight-block" href="{{ page.url }}">{{ page.highlighted_search_title }}</a>
+              <p class="text-sm mt-2 ml-4 line-clamp-2 text-slate-500 search-highlight-block">{{ page.highlighted_search_content }}</p>
             </div>
           {% else %}
             <div class="hero bg-base-200 h-44 rounded-lg">
