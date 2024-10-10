@@ -66,6 +66,18 @@
     "name": "t:settings_schema.generic.name",
     "settings": [
       {
+        "id": "company_name",
+        "label": "t:settings_schema.generic.settings.company_name.label",
+        "type": "text",
+        "default": "t:settings_schema.generic.settings.company_name.default"
+      },
+      {
+        "id": "copyright_info",
+        "type": "text",
+        "label": "t:settings_schema.generic.settings.copyright_info.label",
+        "default": "t:settings_schema.generic.settings.copyright_info.default"
+      },
+      {
         "id": "is_allow_published_at",
         "type": "checkbox",
         "label": "文章内是否展示发布日期",

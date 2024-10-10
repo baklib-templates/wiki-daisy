@@ -1,5 +1,5 @@
 
-<footer class="border-t border-accent-200 print:hidden">
+<footer id="footer" class="border-t border-accent-200 print:hidden">
   {% # 自定义导航菜单 %}
   {% if site.settings.footer_menu_html %}
     <div class="mx-auto max-w-screen-xl py-2 md:py-4 space-x-2">
@@ -7,7 +7,7 @@
     </div>
   {% endif %}
   {% # 底部备案和链接 %}
-  <div class="mx-auto max-w-screen-2xl py-2 md:py-4">
+  <div class="mx-auto max-w-screen-xl py-2 md:py-4">
     <div class="sm:flex sm:items-center sm:justify-between">
       <div class="flex space-x-2 text-sm">
         <a href="/" class="flex items-center">
@@ -18,7 +18,9 @@
       </div>
       <div class="hidden mt-4 space-x-6 sm:flex sm:justify-center sm:mt-0">
         <div>©  {{ site.settings.company_name }}<span class="md:hidden lg:inline"> {{ 'generic.copyright' | t }}.</span></div>
+        <a href="https://beian.miit.gov.cn/#" target="_blank" class="hidden hover:underline md:block">{{ site.settings.copyright_info }}</a>
       </div>
     </div>
   </div>
 </footer>
+
