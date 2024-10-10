@@ -16,48 +16,47 @@
         </p>
         {% endif %}
         {% if site.settings.is_allow_published_at %}
-        <p class="text-sm text-md">发布于：{{ page.published_at | date: "%Y-%m-%d" }}</p>
+        <p class="text-sm text-md">{{ 'generic.published_at' | t }}：{{ page.published_at | date: "%Y-%m-%d" }}</p>
         {% endif %}
       </div>
     </div>
   </div>
 
-
-  {% if page.settings.tags.size > 0 %}
-  <div class="flex flex-wrap items-center gap-4 my-2 md:my-4 text-sm">
-    <span>{{ 'generic.tags' | t }}：</span>
-    {% for tag in page.settings.tags %}
-    <a href="{{ tag.path }}" data-turbo-frame="_top"
-      class="inline-flex items-center transition-all duration-200 hover:-translate-y-[2px]">
-      {% render 'tag', tag: tag %}
-    </a>
-    {% endfor %}
-  </div>
-  {% endif %}
-
   {% if page.settings.description %}
-  <figure class="p-4 my-2 border-l border-l-2 rounded-md border-primary">
-    <blockquote class="font-semibold">
-      <p>{{ page.settings.description }}</p>
-    </blockquote>
-  </figure>
+    <figure class="p-4 my-2 border-l-2 rounded-md border-primary">
+      <blockquote class="font-semibold">
+        <p>{{ page.settings.description }}</p>
+      </blockquote>
+    </figure>
   {% endif %}
 
-  <div class="mt-8 flow-root">
+  <div class="flow-root mt-8">
     <div class="overflow-auto">
-      <div data-controller="view_images"
-        class="ProseMirror prose sm:prose-base lg:prose-md focus:outline-none dark:prose-invert prose-a:text-blue-600">
+      <div data-controller="view_images3"
+        class="ProseMirror prose sm:prose-base lg:prose-md focus:outline-none dark:prose-invert prose-a:text-blue-600 scroll-mt-96 scroll-pt-72">
         {{ page.settings.content }}
       </div>
     </div>
   </div>
+
+  {% if page.settings.tags.size > 0 %}
+    <div class="flex flex-wrap items-center gap-4 my-2 md:my-4 text-sm">
+      <span>{{ 'generic.tags' | t }}：</span>
+      {% for tag in page.settings.tags %}
+      <a href="{{ tag.path }}" data-turbo-frame="_top"
+        class="inline-flex items-center transition-all duration-200 hover:-translate-y-[2px]">
+        {% render 'tag', tag: tag %}
+      </a>
+      {% endfor %}
+    </div>
+  {% endif %}
 
   {% # feedback %}
   <!-- 用官方的 ID.showModal() method 会出现z-index覆盖的错误（https://github.com/saadeghi/daisyui/issues/2858）# -->
   <!-- 所以以下代码增加了 Alpinejs 的 open变量控制窗口的显示与否 -->
   <div x-data="{ open: false }" class="flex flex-col items-center justify-center w-full my-8 space-y-3 print:hidden" id="{{ page.id }}_feedback">
     <a data-turbo-method="get" data-turbo-stream="true" x-on:click="open = ! open" href="/-/feedbacks/new?page_path={{ page.path }}"
-      class="flex items-center justify-center border-2 rounded-full cursor-pointer w-14 h-14 border-primary text-primary"
+      class="flex items-center justify-center border-2 rounded-full cursor-pointer w-14 h-14 btn"
       :class="{ 'bg-primary text-white': {{ page.visitor_posted_feedback }} }">
       <svg t="1698223767490" class="w-6 h-6 icon" viewBox="0 0 1024 1024" version="1.1"
         xmlns="http://www.w3.org/2000/svg" p-id="4875">

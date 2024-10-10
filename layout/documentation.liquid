@@ -10,14 +10,20 @@
     {{ 'css/main.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
 
     {%# 切换theme主题色 %}
-    {{ 'javascripts/theme-change-2.0.2.js' | asset_url | script_tag: data-turbo-track: 'reload' }}
+    {% unless site.settings.daisy_theme.value %}
+      {{ 'javascripts/theme-change-2.0.2.js' | asset_url | script_tag: data-turbo-track: 'reload' }}
+    {% endunless %}
+    <script>
+      localStorage.setItem("theme", "{{ site.settings.daisy_theme.value |  default: 'light' }}");
+    </script>
 
     {%# TIPS：在低代码平台开发时，请打开下一行代码注释 %}
     {% if false %}
       <link href="https://unpkg.com/daisyui@latest/dist/full.css" rel="stylesheet">
       <script src="https://cdn.tailwindcss.com"></script>
     {% endif %}
-    {% if false %} {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
+    {% if true %} {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
+    
     {{ site.settings.head_html }}
   </head>
   <body>
@@ -25,7 +31,7 @@
       <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content flex flex-col">
         <!-- Header Section -->
-        {% render 'header_doc', settings: site.settings, page: page %}
+        {% render 'header', settings: site.settings, page: page %}
         <!-- Main Content Section -->
         <div class="relative">{{ content_for_layout }}</div>
       </div>

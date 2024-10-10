@@ -40,8 +40,8 @@
         "fashion": {
           "name": "时尚",
           "colors": {
-            "--theme-color-primary": "#0d9488",
-            "--theme-color-secondary": "#ea580c",
+            "--theme-color-primary": "#03A9F4",
+            "--theme-color-secondary": "#E91E63",
             "--theme-color-accent": "#AAAAAA",
             "--theme-color-info": "#2196F3",
             "--theme-color-success": "#4CAF50",
@@ -76,6 +76,13 @@
         "type": "checkbox",
         "label": "文章内是否展示作者",
         "default": true
+      },
+      {
+        "id": "daisy_theme",
+        "type": "select",
+        "choices": [{"label":"light","value":"light"},{"label":"dark","value":"dark"},{"label":"cupcake","value":"cupcake"},{"label":"bumblebee","value":"bumblebee"},{"label":"emerald","value":"emerald"},{"label":"corporate","value":"corporate"},{"label":"synthwave","value":"synthwave"},{"label":"retro","value":"retro"},{"label":"cyberpunk","value":"cyberpunk"},{"label":"valentine","value":"valentine"},{"label":"halloween","value":"halloween"},{"label":"garden","value":"garden"},{"label":"forest","value":"forest"},{"label":"aqua","value":"aqua"},{"label":"lofi","value":"lofi"},{"label":"pastel","value":"pastel"},{"label":"fantasy","value":"fantasy"},{"label":"wireframe","value":"wireframe"},{"label":"black","value":"black"},{"label":"luxury","value":"luxury"},{"label":"dracula","value":"dracula"},{"label":"cmyk","value":"cmyk"},{"label":"autumn","value":"autumn"},{"label":"business","value":"business"},{"label":"acid","value":"acid"},{"label":"lemonade","value":"lemonade"},{"label":"night","value":"night"},{"label":"coffee","value":"coffee"},{"label":"winter","value":"winter"},{"label":"dim","value":"dim"},{"label":"nord","value":"nord"},{"label":"sunset","value":"sunset"}],
+        "label": "选择主题风格",
+        "info": "默认主题预览见：https://daisyui.com/docs/themes/"
       }
     ]
   },
@@ -87,14 +94,7 @@
         "type": "html",
         "label": "t:settings_schema.generic.settings.header_menu_html.label",
         "rows": 10,
-        "placeholder": "<a href='#'> title </a>"
-      },
-      {
-        "id": "footer_menu_html",
-        "type": "html",
-        "label": "t:settings_schema.generic.settings.footer_menu_html.label",
-        "rows": 10,
-        "placeholder": "<a href='#'> title </a>"
+        "placeholder": "<li><a href='#'> title </a></li>"
       }
     ]
   },

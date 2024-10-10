@@ -12,7 +12,7 @@ export default class extends Controller {
 
   generateDirectory() {
     const mainContainer = document.getElementsByClassName('ProseMirror')[0]
-    const headings = Array.from(mainContainer.querySelectorAll("h1, h2, h3, h4, h5, h6"))
+    const headings = Array.from(mainContainer.querySelectorAll("h1, h2, h3"))
     const directory = this.buildDirectoryTree(headings)
     this.renderDirectory(directory, this.linksTarget)
   }
@@ -111,7 +111,7 @@ export default class extends Controller {
 
   // 为当前标签设置高亮显示
   hightLightActiveLink() {
-    const headings = Array.from(document.querySelectorAll("h1, h2, h3, h4, h5, h6"))
+    const headings = Array.from(document.querySelectorAll("h1, h2, h3"))
     const links = Array.from(this.linksTarget.querySelectorAll("a"))
 
     let activeLink = null
@@ -171,8 +171,10 @@ export default class extends Controller {
 
   headerHeight() {
     // 动态获取header的高度，并且判断是否是固定
+    // 确保网页中有个一个 id="header" 的DOM
     const header = document.getElementById('header')
-    let headerHight = 0
+    // 设置默认头部padding 100px，这个值根据每个模板Header是否固定而调整值。
+    let headerHight = 100
     if (header) {
       const headerStyles = window.getComputedStyle(header);
 

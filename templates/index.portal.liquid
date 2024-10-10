@@ -2,9 +2,11 @@
 {% assign hot_tags = page.settings.hot_tags | split: ',' %}
 
 <!-- Hero Section -->
-<section id="hero" style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);" class="hero flex items-center justify-center flex-col bg-no-repeat bg-cover bg-center {% if page.settings.hero_image_url %} bg-base-200 {% else %} bg-base-300 {% endif %} h-[250px] md:h-[350px]"
-  {% if page.settings.hero_image_url %} style="background-image: url({{ page.settings.hero_image_url | default: default_hero_image }})" {% endif %}
-  >
+<section id="hero"
+  style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);"
+  class="hero flex items-center justify-center flex-col bg-no-repeat bg-cover bg-center {% if page.settings.hero_image_url %} bg-base-200 {% else %} bg-base-300 {% endif %} h-[250px] md:h-[350px]"
+  {% if page.settings.hero_image_url %}
+  style="background-image: url({{ page.settings.hero_image_url | default: default_hero_image }})" {% endif %}>
   <div class="flex items-center justify-center flex-1 w-full py-3">
     <div class="container flex flex-col h-full px-4 mx-auto">
       <div class="flex flex-col items-center justify-center flex-grow">
@@ -15,31 +17,28 @@
 
         <div class="z-0 flex flex-col items-center justify-center w-full md:w-2/3">
           {% form_tag 'search', class: 'w-full' %}
-            <div class="relative rounded-2xl shadow-sm">
-              <button type="submit" class="absolute inset-y-0 right-0 flex items-center pl-4 pr-3 sm:right-auto">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" > <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /> </svg>
-              </button>
-              <input
-                type="text"
-                name="{{form.keywords_field_name}}" value="{{ search.keywords | escape_once }}"
-                placeholder="{{ "placeholders.search" | t }}"
-                autocomplete="off"
-                class="block w-full h-10 md:h-12 lg:h-14 pl-3 pr-10 transition duration-300 ease-in-out bg-accent-100 bg-opacity-90 border-primary border-2 rounded outline-none focus:ring-0 focus:border-primary focus:border-4 sm:pl-12 sm:text-lg focus:bg-opacity-90"
-              >
-            </div>
+          <div class="relative rounded-2xl shadow-sm">
+            <button type="submit" class="absolute inset-y-0 right-0 flex items-center pl-4 pr-3 sm:right-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </button>
+            <input type="text" name="{{form.keywords_field_name}}" value="{{ search.keywords | escape_once }}"
+              placeholder="{{ " placeholders.search" | t }}" autocomplete="off"
+              class="block w-full h-10 md:h-12 lg:h-14 pl-3 pr-10 transition duration-300 ease-in-out bg-accent-100 bg-opacity-90 border-primary border-2 rounded outline-none focus:ring-0 focus:border-primary focus:border-4 sm:pl-12 sm:text-lg focus:bg-opacity-90">
+          </div>
           {% endform_tag %}
 
-            <div class="items-center justify-start hidden w-full mt-4 md:flex">
-              <p class="mr-3 text-primary">{{ 'generic.popular_search' | t }}:</p>
-              {% for search_hot_key in hot_tags %}
-                <a
-                  href="/-/search?q={{ search_hot_key }}"
-                  class="mr-3 hover:underline focus:ring"
-                >
-                  {{ search_hot_key }}
-                </a>
-              {% endfor %}
-            </div>
+          <div class="items-center justify-start hidden w-full mt-4 md:flex">
+            <p class="mr-3 text-primary">{{ 'generic.popular_search' | t }}:</p>
+            {% for search_hot_key in hot_tags %}
+            <a href="/-/search?q={{ search_hot_key }}" class="mr-3 hover:underline focus:ring">
+              {{ search_hot_key }}
+            </a>
+            {% endfor %}
+          </div>
 
         </div>
       </div>
@@ -47,94 +46,114 @@
   </div>
 </section>
 
-<div class="max-w-7xl mx-auto">
-
-  <div class="diff aspect-[16/9] my-12 lg:my-20">
-    <div class="diff-item-1">
-      <div class="bg-secondary text-primary-content text-9xl font-black grid place-content-center">DAISY</div>
+<section id="table-of-contents" aria-labelledby="table-of-contents-title"
+  class="scroll-mt-14 py-16 sm:scroll-mt-32 sm:py-20 lg:py-32">
+  <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:max-w-4xl lg:px-12">
+    <h2 class="inline-flex items-center rounded-full px-4 py-1 text-blue-600 ring-1 ring-inset ring-blue-600"
+      id="table-of-contents-title"><span class="font-mono text-sm" aria-hidden="true">01</span><span
+        class="ml-3 h-3.5 w-px bg-blue-600/20"></span><span class="ml-3 text-base font-medium tracking-tight">Table of
+        contents</span></h2>
+    <p class="mt-8 font-display text-4xl font-bold tracking-tight text-slate-900">Get a look at all of the content
+      covered in the book. Everything you need to know is inside.</p>
+    <p class="mt-4 text-lg tracking-tight text-slate-700">“Everything Starts as a Square” is comprised of 240 tightly
+      edited, highly visual pages designed to teach you everything you need to know about icon design with no
+      unnecessary filler.</p>
+    <div>
+      <ol role="list" class="mt-16 space-y-10 sm:space-y-16">
+        <li>
+          <h3 class="font-display text-3xl font-bold tracking-tight text-slate-900">Getting started</h3>
+          <ol role="list"
+            class="mt-8 divide-y divide-slate-300/30 rounded-2xl bg-slate-50 px-6 py-3 text-base tracking-tight sm:px-8 sm:py-7">
+            <li class="flex justify-between py-3" aria-label="Getting started on page 1"><span
+                class="font-medium text-slate-900" aria-hidden="true">Getting started</span><span
+                class="font-mono text-slate-400" aria-hidden="true">1</span></li>
+            <li class="flex justify-between py-3" aria-label="Intro to Figma on page 15"><span
+                class="font-medium text-slate-900" aria-hidden="true">Intro to Figma</span><span
+                class="font-mono text-slate-400" aria-hidden="true">15</span></li>
+            <li class="flex justify-between py-3" aria-label="Setting up your first artboard on page 20"><span
+                class="font-medium text-slate-900" aria-hidden="true">Setting up your first artboard</span><span
+                class="font-mono text-slate-400" aria-hidden="true">20</span></li>
+          </ol>
+        </li>
+        <li>
+          <h3 class="font-display text-3xl font-bold tracking-tight text-slate-900">Fundamentals</h3>
+          <ol role="list"
+            class="mt-8 divide-y divide-slate-300/30 rounded-2xl bg-slate-50 px-6 py-3 text-base tracking-tight sm:px-8 sm:py-7">
+            <li class="flex justify-between py-3" aria-label="Strokes and fills on page 21"><span
+                class="font-medium text-slate-900" aria-hidden="true">Strokes and fills</span><span
+                class="font-mono text-slate-400" aria-hidden="true">21</span></li>
+            <li class="flex justify-between py-3" aria-label="End points on page 22"><span
+                class="font-medium text-slate-900" aria-hidden="true">End points</span><span
+                class="font-mono text-slate-400" aria-hidden="true">22</span></li>
+            <li class="flex justify-between py-3" aria-label="Bezier curves on page 26"><span
+                class="font-medium text-slate-900" aria-hidden="true">Bezier curves</span><span
+                class="font-mono text-slate-400" aria-hidden="true">26</span></li>
+            <li class="flex justify-between py-3" aria-label="Designing on a grid on page 31"><span
+                class="font-medium text-slate-900" aria-hidden="true">Designing on a grid</span><span
+                class="font-mono text-slate-400" aria-hidden="true">31</span></li>
+            <li class="flex justify-between py-3" aria-label="Vector shapes on page 45"><span
+                class="font-medium text-slate-900" aria-hidden="true">Vector shapes</span><span
+                class="font-mono text-slate-400" aria-hidden="true">45</span></li>
+          </ol>
+        </li>
+      </ol>
+      <div class="mt-10 flex justify-center"><button type="button"
+          class="flex items-center text-base font-medium tracking-tight text-slate-900 hover:text-slate-700">See
+          more<svg aria-hidden="true" viewBox="0 0 24 24" class="ml-2 h-6 w-6">
+            <path d="m17 14-5 5-5-5M12 18.5V5" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg></button></div>
     </div>
-    <div class="diff-item-2">
-      <div class="bg-primary text-9xl font-black grid place-content-center">WIKI</div>
-    </div>
-    <div class="diff-resizer"></div>
   </div>
-
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 my-12">
-    <article class="prose border-r">
-      <h1 class="text-secondary">什么是 Daisy UI?</h1>
-      <p>
-        DaisyUI 是流行 CSS 框架 Tailwind CSS 的时尚实用插件。
-        美观性和功能性需要齐头并进，才能为用户创造引人入胜且高效的体验，DaisyUI 刚好做到了这一点。
-      </p>
-      <p>
-        TailwindCSS 是一个高度可定制的低级 CSS 框架。DaisyUI 的作用是提供一组丰富的预构建组件，可以使用 TailwindCSS 在项目中轻松集成和自定义这些组件。
-        这意味着您可以享受 Tailwind 提供的所有自定义优势，同时享受更传统的 UI 套件的速度和简便性。
-      </p>
-      <!-- ... -->
-    </article>
-    <article class="prose">
-      <h1 class="text-primary">什么是 Daisy Wiki?</h1>
-      <p>
-        Daisy Wiki 是通过 DaisyUI 打造的一个 Wiki 站点模板，如果你希望创建一个内容驱动型的网站，又希望前端具有更加现代化的用户体验，则选择这个模板就好了。
-      </p>
-
-      <p>
-        操作方式很简单，你只需要在工作台 1）创建一个知识库；2）在[模板市场]中选择[Daisy Wiki]模板；3）点击[安装]，三步操作完成，一个崭新的 Wiki站点就呈现在你面前了。
-        模板预设了 10+主题切换，以及知识库界面包括树状菜单、文档排版、页面导航等。
-      </p>
-      <!-- ... -->
-    </article>
-  </div>
-
-</div>
+</section>
 
 
 {% schema %}
-  {
-    "name": "Portal",
-    "description": "Ideal for feature-rich portal site",
-    "thumb_url": "images/theme/index-portal.png",
-    "preview_image_urls": [
-      "images/theme/index-portal.png"
-    ],
-    "sub_page_templates": ["page"],
-    "settings": [
-        {
-          "id": "hero_image_url",
-          "type": "image_picker",
-          "ratio": "19:6",
-          "width": 900,
-          "label": "t:settings_schema.generic.settings.hero_image_url.label",
-          "info": "t:settings_schema.generic.settings.hero_image_url.info"
-        },
-        {
-          "id": "title",
-          "type": "text",
-          "label": "t:settings_schema.generic.settings.title.label",
-          "default": "Knowledge base site"
-        },
-        {
-          "id": "description",
-          "type": "text",
-          "label": "t:settings_schema.generic.settings.description.label",
-          "default": "👋 What Can We Help?"
-        },
-        {
-          "id": "hot_tags",
-          "label": "t:settings_schema.generic.settings.hot_tags.label",
-          "type": "text",
-          "placeholder": "sign in,install,account,how to"
-        },
-        {
-          "id": "index_card_page_count",
-          "type": "number",
-          "min": 1,
-          "max": 20,
-          "step": 1,
-          "default": 5,
-          "label": "首页列表展示页面数量",
-          "info": ""
-        }
-      ]
-  }
+{
+"name": "Portal",
+"description": "Ideal for feature-rich portal site",
+"thumb_url": "images/theme/index-portal.png",
+"preview_image_urls": [
+"images/theme/index-portal.png"
+],
+"sub_page_templates": ["page"],
+"settings": [
+{
+"id": "hero_image_url",
+"type": "image_picker",
+"ratio": "19:6",
+"width": 900,
+"label": "t:settings_schema.generic.settings.hero_image_url.label",
+"info": "t:settings_schema.generic.settings.hero_image_url.info"
+},
+{
+"id": "title",
+"type": "text",
+"label": "t:settings_schema.generic.settings.title.label",
+"default": "Knowledge base site"
+},
+{
+"id": "description",
+"type": "text",
+"label": "t:settings_schema.generic.settings.description.label",
+"default": "👋 What Can We Help?"
+},
+{
+"id": "hot_tags",
+"label": "t:settings_schema.generic.settings.hot_tags.label",
+"type": "text",
+"placeholder": "sign in,install,account,how to"
+},
+{
+"id": "index_card_page_count",
+"type": "number",
+"min": 1,
+"max": 20,
+"step": 1,
+"default": 5,
+"label": "首页列表展示页面数量",
+"info": ""
+}
+]
+}
 {% endschema %}

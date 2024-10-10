@@ -25,8 +25,8 @@
       <!-- in page nav -->
       <nav class="hidden w-64 xl:block shrink-0 print:hidden" data-controller="menu">
         <div class="fixed w-64 pt-12 pb-8 top-12">
-          <div class="border-l border-slate-200 dark:border-slate-800 h-[680px]">
-            <div class="text-sm dark:bg-slate-900 space-y-3 overflow-y-hidden hover:overflow-y-auto max-h-full" data-menu-target="links"></div>
+          <div class="border-l border-slate-200 dark:border-base h-[680px]">
+            <div class="text-sm space-y-3 overflow-y-hidden hover:overflow-y-auto max-h-full" data-menu-target="links"></div>
           </div>
         </div>
       </nav>
@@ -51,11 +51,10 @@
         "label": "t:settings_schema.page.settings.tags.label"
       },
       {
-        "id": "show_new_tag",
-        "type": "checkbox",
-        "default": "false",
-        "label": "展示 New 标签",
-        "info": "作为最新发布的内容，链接旁添加 New 标签"
+        "id": "description",
+        "type": "textarea",
+        "label": "描述",
+        "info": "*[可选] 页面个性化内容描述"
       },
       {
         "id": "title",

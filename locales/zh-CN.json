@@ -28,6 +28,10 @@
     "search": "在站内搜索",
     "input_password": "输入密码"
   },
+  "search": {
+    "search_title": "站内搜索",
+    "no_results": "没有结果"
+  },
   "buttons": {
     "submit": "提交",
     "login": "登录",

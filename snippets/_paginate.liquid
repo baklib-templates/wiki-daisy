@@ -1,5 +1,5 @@
 {% if paginate.total_count > 0 %}
-  <div class="flex items-center justify-between py-3 border-t border-gray-200">
+  <div class="flex items-center justify-between py-3">
     {% if paginate.total_pages > 1 %}
 
       <div class="flex justify-between flex-1 sm:hidden">
@@ -23,12 +23,12 @@
               {% case type %}
                 {% when 'string' %}
                   {% if i == 'gap' %}
-                    <span class="relative inline-flex items-center px-3 py-1 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>
+                    <span class="relative inline-flex items-center px-3 py-1 text-sm font-semibold  ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>
                   {% else %}
                     <a href="#" aria-current="page" class="relative z-10 inline-flex items-center px-3 py-1 text-sm font-semibold text-white bg-primary focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">{{i}}</a>
                   {% endif %}
                 {% when 'integer' %}
-                  <a href="{{paginate.url_for[i]}}" class="relative inline-flex items-center px-3 py-1 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">{{i}}</a>
+                  <a href="{{paginate.url_for[i]}}" class="relative inline-flex items-center px-3 py-1 text-sm font-semibold  ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">{{i}}</a>
               {% endcase %}
             {% endfor %}
 

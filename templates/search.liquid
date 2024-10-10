@@ -23,28 +23,31 @@
         </div>
       </div>
 
-      <div class="space-y-3 text-slate-600 dark:text-slate-400">
+      <div class="space-y-3">
         {% if search.page_number == 1 %}
           {% for link in search.extends %}
-            <div class="space-y-4 rounded-md bg-accent-100 hover:bg-accent-200 md:p-4">
-              <a class="text-lg font-bold md:text-xl text-slate-800 hover:text-secondary dark:text-slate-200 search-highlight-block" href="{{ link.url }}">{{ link.link_text }}</a>
-              <p class="text-sm line-clamp-3 text-slate-400 search-highlight-block">{{ link.url }}</p>
+            <div class="rounded-md md:p-4 border-b border-accent hover:bg-accent-100">
+              <a class="text-lg font-bold leading-normal md:text-xl hover:underline search-highlight-block" href="{{ link.url }}">{{ link.link_text }}</a>
+              <p class="text-sm ml-4 line-clamp-2 text-slate-500 search-highlight-block">{{ link.url }}</p>
             </div>
           {% endfor %}
         {% endif %}
         {% paginate_tag search.pages, as: 'pages', per: 10 %}
           {% for page in pages %}
-            <div class="space-y-4 rounded-md bg-accent-100 hover:bg-accent-200 md:p-4">
-              <a class="text-lg font-bold md:text-xl text-slate-800 hover:text-secondary dark:text-slate-200 search-highlight-block" href="{{ page.url }}">{{ page.highlighted_search_title }}</a>
-              <p class="text-sm line-clamp-3 text-slate-400 search-highlight-block">{{ page.highlighted_search_content }}</p>
-              <div class="flex items-center justify-between">
-                <div class="breadcrumbs hidden overflow-x-auto md:block text-sm">
-                  {% render 'breadcrumb', breadcrumb: page.breadcrumb %}
+            <div class="rounded-md md:p-4 border-b border-accent hover:bg-accent-100">
+              <a class="text-lg font-bold leading-normal md:text-xl hover:underline search-highlight-block" href="{{ page.url }}">{{ page.highlighted_search_title }}</a>
+              <p class="text-sm ml-4 line-clamp-2 text-slate-500 search-highlight-block">{{ page.highlighted_search_content }}</p>
+            </div>
+          {% else %}
+            <div class="hero bg-base-200 h-44 rounded-lg">
+              <div class="hero-content text-center">
+                <div class="max-w-md">
+                  <p class="py-6">
+                    {{ "search.no_results" | t: 'No results found' }}
+                  </p>
                 </div>
               </div>
             </div>
-          {% else %}
-            <div class="w-full mx-auto my-8">{{ "search.no_results" | t: 'No results found' }}</div>
           {% endfor %}
           {% render 'paginate', paginate: paginate %}
         {% endpaginate_tag %}
