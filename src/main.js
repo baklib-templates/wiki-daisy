@@ -4,6 +4,7 @@ import collapse from '@alpinejs/collapse'
 import { Application } from "@hotwired/stimulus"
 import MenuController from "./menu_controller"
 import ViewImagesController from "./view_images_controller"
+import Clipboard from '@stimulus-components/clipboard'
 // import NavtreeController from "./navtree_controller"
 // import ThemeController from "./theme_controller"
 // import Dropdown from 'stimulus-dropdown'
@@ -43,6 +44,7 @@ const application = Application.start()
 window.Stimulus = application
 application.register('menu', MenuController)
 application.register('view_images', ViewImagesController)
+application.register('clipboard', Clipboard)
 // application.register('navtree', NavtreeController)
 // application.register('theme', ThemeController)
 // application.register('dropdown', Dropdown)

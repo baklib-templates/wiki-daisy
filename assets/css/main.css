@@ -5261,8 +5261,9 @@ html:has(.drawer-toggle:checked) {
   border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
 }
 
-.divide-base-300\/30 > :not([hidden]) ~ :not([hidden]) {
-  border-color: var(--fallback-b3,oklch(var(--b3)/0.3));
+.divide-base-300 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: var(--fallback-b3,oklch(var(--b3)/var(--tw-divide-opacity)));
 }
 
 .self-center {
@@ -5768,10 +5769,6 @@ html:has(.drawer-toggle:checked) {
 
 .leading-6 {
   line-height: 1.5rem;
-}
-
-.tracking-tight {
-  letter-spacing: -0.025em;
 }
 
 .text-base-200 {
@@ -6933,6 +6930,11 @@ html:has(.drawer-toggle:checked) {
 
   .lg\:pb-12 {
     padding-bottom: 3rem;
+  }
+
+  .lg\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .lg\:text-4xl {
