@@ -1,5 +1,5 @@
 {%# 一旦后台设置了主题风格， 前台就不再显示任意切换主题的下拉框了 %}
-{% unless site.settings.daisy_theme.value %}
+{% unless site.settings.is_close_theme_select %}
   <div title="Change Theme" class="dropdown dropdown-end w-24">
     <div tabindex="0" role="button" class="btn btn-ghost w-24">
       <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

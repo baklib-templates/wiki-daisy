@@ -11,7 +11,7 @@
 
       <a href="/" class="flex-0 btn btn-ghost px-2">
         <h1 class="flex text-xl md:text-2xl font-bold items-center">
-          {%- if page.slug == nil -%} 
+          {%- if page.slug == nil -%}
             {% assign logo = 'images/logo.png' | asset_url %}
             <img src="{{ site.favicon_url | default: logo  }}" class="h-8 mr-3" alt="{{ site.name }} Logo">
           {% endif %}
@@ -24,7 +24,7 @@
         {% if site.settings.header_menu_html %}
           {{ site.settings.header_menu_html }}
         {% else %}
-          <li><a href="{{ statics['/about'] }}">About</a></li>
+          <li><a href="{{ statics['about'] }}">About</a></li>
         {% endif %}
       </ul>
     </div>
@@ -48,9 +48,7 @@
       </div>
 
       <!--主题切换-->
-      {% unless site.settings.daisy_theme.value %}
-          {% render 'select_daisy_theme' %}
-      {% endunless %}
+      {% render 'select_daisy_theme' %}
 
       {% if current_user %}
         <details class="dropdown dropdown-bottom">
@@ -59,7 +57,7 @@
             {% if current_user.image %}
               <li>
                 <div class="flex">
-                  <img src="{{current_user.image}}" class="w-6 h-6 rounded-full" /> 
+                  <img src="{{current_user.image}}" class="w-6 h-6 rounded-full" />
                   <div>{{ current_user.name }}</div>
                 </div>
               </li>
