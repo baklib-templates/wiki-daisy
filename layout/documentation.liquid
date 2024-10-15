@@ -22,8 +22,8 @@
       <link href="https://unpkg.com/daisyui@latest/dist/full.css" rel="stylesheet">
       <script src="https://cdn.tailwindcss.com"></script>
     {% endif %}
-    {% if true %} {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
-    
+    {% if false %} {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
+
     {{ site.settings.head_html }}
   </head>
   <body>

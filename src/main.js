@@ -5,7 +5,7 @@ import { Application } from "@hotwired/stimulus"
 import MenuController from "./menu_controller"
 import ViewImagesController from "./view_images_controller"
 import Clipboard from '@stimulus-components/clipboard'
-// import NavtreeController from "./navtree_controller"
+import NavtreeController from "./navtree_controller"
 // import ThemeController from "./theme_controller"
 // import Dropdown from 'stimulus-dropdown'
 import Daisyui from "daisyui"
@@ -45,7 +45,7 @@ window.Stimulus = application
 application.register('menu', MenuController)
 application.register('view_images', ViewImagesController)
 application.register('clipboard', Clipboard)
-// application.register('navtree', NavtreeController)
+application.register('navtree', NavtreeController)
 // application.register('theme', ThemeController)
 // application.register('dropdown', Dropdown)
 application.register('daisyui', Daisyui)
