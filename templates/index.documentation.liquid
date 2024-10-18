@@ -20,7 +20,13 @@
                     <header class="mb-2 card-title">
                       <div class="flex items-center justify-start">
                         {% if card_page.settings.icon %}
-                          <span class="mr-4"><img src="{{ card_page.settings.icon }}" class="h-10"/> </span>
+                          <span class="mr-2"><img src="{{ card_page.settings.icon }}" class="h-6 w-6"/> </span>
+                        {% else %}
+                          <span class="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 w-6 h-6">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                            </svg>
+                          </span>
                         {% endif %}
                         <a class="text-xl font-semibold hover:text-primary" href="{{ card_page.path }}">
                           <h3 class="line-clamp-1">{{ card_page.link_text }}</h3>
@@ -50,7 +56,7 @@
                 </div>
                 <!-- Card footer -->
                 <div class="flex justify-end space-x-2 border-t border-slate-200 dark:border-gray-700 pt-3 md:pt-5">
-                  <a href="{{ card_page.path }}" class="cursor-pointer text-info">{{ 'generic.read_more' | t}}</a>
+                  <a href="{{ card_page.path }}" class="cursor-pointer text-primary">{{ 'generic.read_more' | t}}</a>
                 </div>
             </div>
           </div>

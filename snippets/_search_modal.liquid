@@ -57,7 +57,7 @@
             {% comment %} 热门页面 {% endcomment %}
             <ul class="list list-disc list-inside">
               {% for hot_page in hot_pages %}
-              <li class="px-2 py-1 text-sm leading-6 rounded outline-none text-slate-800 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-700 focus-within:bg-slate-100 dark:focus-within:bg-slate-700">
+              <li class="px-2 py-1 text-sm leading-6 rounded outline-none">
                 <a href="{{ hot_page.path }}" class="">
                   <span>{{ hot_page.link_text }}</span>
                 </a>
