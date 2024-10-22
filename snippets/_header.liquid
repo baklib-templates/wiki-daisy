@@ -14,8 +14,10 @@
           {%- if page.slug == nil -%}
             {% assign logo = 'images/logo.png' | asset_url %}
             <img src="{{ site.favicon_url | default: logo  }}" class="h-8 mr-3" alt="{{ site.name }} Logo">
+            <span class="hidden sm:flex">{{ site.name }}</span>
+          {% else %}
+            {{ site.name }}
           {% endif %}
-          {{ site.name }}
         </h1>
       </a>
 

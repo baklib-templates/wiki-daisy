@@ -29,7 +29,7 @@
 
     {{ site.settings.head_html }}
   </head>
-  <body>
+  <body class="">
 
     {% if page.slug == "" or page.slug == nil %}
       <!-- 首页或静态页样式：page.slug == ""为首页，page.slug == nil 为statics/下静态页 -->
@@ -68,7 +68,7 @@
           <!-- Header Section -->
           {% render 'header', settings: site.settings, page: page %}
           <!-- Main Content Section -->
-          <div class="min-h-screen overflow-auto"
+          <div class="relative min-h-screen overflow-auto"
             x-data="{ scrolled: false }"
             x-init="
               window.addEventListener('scroll', () => {
