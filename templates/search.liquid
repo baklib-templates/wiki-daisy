@@ -35,7 +35,7 @@
         {% paginate_tag search.pages, as: 'pages', per: 10 %}
           {% for page in pages %}
             <div class="rounded-md md:p-4 border-b border-accent hover:bg-accent-100">
-              <a class="text-lg md:text-xl hover:underline search-highlight-block" href="{{ page.url }}">{{ page.highlighted_search_title }}</a>
+              <a class="text-lg md:text-xl hover:underline search-highlight-block" href="{{ page.path }}">{{ page.highlighted_search_title }}</a>
               <p class="text-sm mt-2 ml-4 line-clamp-2 text-slate-500 search-highlight-block">{{ page.highlighted_search_content }}</p>
             </div>
           {% else %}
