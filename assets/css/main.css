@@ -4295,6 +4295,10 @@ html:has(.drawer-toggle:checked) {
   margin-top: 2rem;
 }
 
+.ml-1 {
+  margin-left: 0.25rem;
+}
+
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -5344,6 +5348,10 @@ html:has(.drawer-toggle:checked) {
   opacity: 0.8;
 }
 
+.opacity-10 {
+  opacity: 0.1;
+}
+
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -5783,6 +5791,10 @@ a:hover {
 .group:hover .group-hover\:text-primary {
   --tw-text-opacity: 1;
   color: hsl(var(--theme-color-primary) / var(--tw-text-opacity));
+}
+
+.group:hover .group-hover\:opacity-100 {
+  opacity: 1;
 }
 
 .dark\:border-gray-700:is(.dark *) {
