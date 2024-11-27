@@ -12,7 +12,7 @@
           {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
         </div>
 
-        <section class="prose md:prose-md mb-10 max-w-none">
+        <section class="mb-10 max-w-none">
           <div>
             <h1 class="flex items-center mb-2 text-2xl font-bold sm:text-3xl xl:text-4xl">
               {{ page.settings.title }}
@@ -20,7 +20,7 @@
             <div class="flow-root mt-8">
               <div class="overflow-auto">
                 <div data-controller="view_images"
-                  class="ProseMirror prose sm:prose-base lg:prose-md focus:outline-none dark:prose-invert prose-a:text-blue-600 scroll-mt-96 scroll-pt-72">
+                  class="ProseMirror break-words scroll-mt-96 scroll-pt-72">
                   {{ page.settings.content }}
                 </div>
               </div>
