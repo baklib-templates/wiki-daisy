@@ -12,7 +12,7 @@
           {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
         </div>
 
-        <section class="mb-10 max-w-none">
+        <section class="mb-10 max-w-3xl">
           <div>
             <h1 class="flex items-center mb-2 text-2xl font-bold sm:text-3xl xl:text-4xl">
               {{ page.settings.title }}
@@ -29,9 +29,9 @@
 
           <div class="divider my-5"></div>
           {% paginate_tag pages, per: 25 %}
-            <ul>
+            <ul class="list-disc list-inside space-y-2">
               {% for sub_page in pages %}
-                <li><a href="{{ sub_page.path }}">{{ sub_page.link_text }}</a></li>
+                <li><a href="{{ sub_page.path }}" class="text-md text-wrap">{{ sub_page.link_text }}</a></li>
               {% endfor %}
             </ul>
             <!-- Pagination -->
