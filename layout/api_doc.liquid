@@ -20,7 +20,18 @@
     <script>
       localStorage.setItem("theme", "{{ site.settings.daisy_theme.value |  default: 'light' }}");
     </script>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
 
+      section {
+        flex: 1 0 0;
+        overflow: hidden;
+      }
+    </style>
 
   </head>
   <body class="">

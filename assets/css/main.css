@@ -3399,6 +3399,12 @@ html {
   color: var(--fallback-bc,oklch(var(--bc)/0.4));
 }
 
+.mockup-phone .display {
+  overflow: hidden;
+  border-radius: 40px;
+  margin-top: -25px;
+}
+
 .mockup-browser .mockup-browser-toolbar .input {
   position: relative;
   margin-left: auto;
@@ -5649,17 +5655,6 @@ body {
   .sl-elements-api > div:nth-child(1) .sl-bg-canvas-100 {
     background-color: #ffffff;
   }
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
-section {
-  flex: 1 0 0;
-  overflow: hidden;
 }
 
 .sl-drawer {
