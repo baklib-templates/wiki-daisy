@@ -4227,6 +4227,10 @@ html:has(.drawer-toggle:checked) {
   margin-bottom: 3px;
 }
 
+.ml-1 {
+  margin-left: 0.25rem;
+}
+
 .ml-2 {
   margin-left: 0.5rem;
 }
@@ -4293,10 +4297,6 @@ html:has(.drawer-toggle:checked) {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.ml-1 {
-  margin-left: 0.25rem;
 }
 
 .line-clamp-1 {
@@ -4739,6 +4739,12 @@ html:has(.drawer-toggle:checked) {
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
 }
 
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+
 .space-y-3 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
@@ -4808,6 +4814,10 @@ html:has(.drawer-toggle:checked) {
 
 .whitespace-nowrap {
   white-space: nowrap;
+}
+
+.text-wrap {
+  text-wrap: wrap;
 }
 
 .break-words {
@@ -5328,6 +5338,10 @@ html:has(.drawer-toggle:checked) {
   opacity: 0;
 }
 
+.opacity-10 {
+  opacity: 0.1;
+}
+
 .opacity-100 {
   opacity: 1;
 }
@@ -5346,10 +5360,6 @@ html:has(.drawer-toggle:checked) {
 
 .opacity-80 {
   opacity: 0.8;
-}
-
-.opacity-10 {
-  opacity: 0.1;
 }
 
 .shadow {
@@ -5606,6 +5616,54 @@ a:hover {
 
 .search-highlight-block b {
   color: hsl(var(--theme-color-primary));
+}
+
+.sl-prose p:nth-child(n+5) {
+  display: none;
+}
+
+.ElementsTableOfContentsItem svg[data-icon=bullseye] {
+  display: none;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@media (min-width: 640px) {
+  /* sm 断点 */
+
+  .sl-elements-api > div:nth-child(1) {
+    margin-left: 3rem;
+    margin-top: 0.75rem;
+    /* 12px */
+    margin-bottom: 0.75rem;
+    /* 12px */
+  }
+
+  .sl-elements-api > div:nth-child(2) {
+    padding-left: 4rem;
+    padding-right: 3.25rem;
+  }
+
+  .sl-elements-api > div:nth-child(1) .sl-bg-canvas-100 {
+    background-color: #ffffff;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+section {
+  flex: 1 0 0;
+  overflow: hidden;
+}
+
+.sl-drawer {
+  z-index: 30;
 }
 
 @media (min-width: 1024px) {
@@ -6179,4 +6237,3 @@ a:hover {
     display: none;
   }
 }
-
