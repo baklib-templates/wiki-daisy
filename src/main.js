@@ -9,6 +9,7 @@ import NavtreeController from "./navtree_controller"
 // import ThemeController from "./theme_controller"
 // import Dropdown from 'stimulus-dropdown'
 import Daisyui from "daisyui"
+import ElementDoc from "./element_doc_controller"
 
 //Search Modal, place this script before Alpine.start
 Alpine.data('handleSearch', () => ({
@@ -49,3 +50,4 @@ application.register('navtree', NavtreeController)
 // application.register('theme', ThemeController)
 // application.register('dropdown', Dropdown)
 application.register('daisyui', Daisyui)
+application.register('element_doc', ElementDoc)

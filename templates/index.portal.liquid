@@ -6,23 +6,23 @@
 {% render 'hero', page: page %}
 
 <section id="table-of-contents" aria-labelledby="table-of-contents-title" class="">
-  <div class="mx-auto md:max-w-2xl lg:max-w-4xl px-4">
+  <div class="px-4 mx-auto md:max-w-2xl lg:max-w-4xl">
     <div>
       <!-- 栏目列表 -->
       {% paginate_tag card_pages, per: limit_page_count %}
-        <ol role="list" class="mt-4 md:mt-8 space-y-4 sm:space-y-8">
+        <ol role="list" class="mt-4 space-y-4 md:mt-8 sm:space-y-8">
           {% for card_page in card_pages %}
             <li>
-              <div class="flex items-center justify-start">
+              <div class="flex justify-start items-center">
                 {% if card_page.settings.icon %}
                   <span class="mr-4"><img src="{{ card_page.settings.icon }}" class="h-10"/> </span>
                 {% endif %}
-                <h3 class="font-display text-2xl lg:text-3xl font-bold line-clamp-1">{{ card_page.link_text}}</h3>
+                <h3 class="text-2xl font-bold font-display lg:text-3xl line-clamp-1">{{ card_page.link_text}}</h3>
               </div>
-          
+
               {% assign sub_pages = card_page.children_in_list | limit: limit_page_count %}
               <!-- 页面列表 -->
-              <ol role="list" class="mt-8 divide-y divide-base-300 rounded-2xl bg-base-200 px-6 py-3 text-base sm:px-8 sm:py-7">
+              <ol role="list" class="px-6 py-3 mt-8 text-base rounded-2xl divide-y divide-base-300 bg-base-200 sm:px-8 sm:py-7">
                 {% for sub_page in sub_pages %}
                   <li class="flex justify-between py-3 hover:underline hover:bg-base-300" aria-label="{{ sub_page.link_text }} ">
                     <a href="{{ sub_page.path }}" class="font-medium" aria-hidden="true">{{ sub_page.link_text }}</a>
@@ -33,7 +33,7 @@
             </li>
           {% endfor %}
         </ol>
-        <div class="mt-10 flex justify-center">
+        <div class="flex justify-center mt-10">
           {% render 'paginate', paginate: paginate %}
         </div>
       {% endpaginate_tag %}

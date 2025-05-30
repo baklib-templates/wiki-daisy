@@ -33,7 +33,7 @@
 
     {% if page.slug == "" or page.slug == nil %}
       <!-- 首页或静态页样式：page.slug == ""为首页，page.slug == nil 为statics/下静态页 -->
-      <div class="flex flex-col min-h-screen overflow-auto"
+      <div class="flex overflow-auto flex-col min-h-screen"
         x-data="{ scrolled: false }"
         x-init="
           window.addEventListener('scroll', () => {
@@ -53,7 +53,7 @@
             behavior: 'smooth'
           });
         "
-        class="fixed z-50 flex items-center justify-center w-10 h-10 rounded-full bottom-4 right-4 xl:w-16 xl:h-16 bg-base-300 hover:bg-primary"
+        class="flex fixed right-4 bottom-4 z-50 justify-center items-center w-10 h-10 rounded-full xl:w-16 xl:h-16 bg-base-300 hover:bg-primary"
         >
           <svg class="w-5 h-5" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 33L24 21L36 33" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 13H36" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -64,11 +64,11 @@
       <!-- 文档页样式 -->
       <div class="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-        <div class="drawer-content flex flex-col">
+        <div class="flex flex-col drawer-content">
           <!-- Header Section -->
           {% render 'header', settings: site.settings, page: page %}
           <!-- Main Content Section -->
-          <div class="relative min-h-screen overflow-auto"
+          <div class="overflow-auto relative min-h-screen"
             x-data="{ scrolled: false }"
             x-init="
               window.addEventListener('scroll', () => {
@@ -86,7 +86,7 @@
                   behavior: 'smooth'
                 });
               "
-              class="fixed z-50 flex items-center justify-center w-10 h-10 rounded-full bottom-4 right-4 xl:w-16 xl:h-16 bg-base-300 hover:bg-primary"
+              class="flex fixed right-4 bottom-4 z-50 justify-center items-center w-10 h-10 rounded-full xl:w-16 xl:h-16 bg-base-300 hover:bg-primary"
             >
               <svg class="w-5 h-5" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 33L24 21L36 33" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 13H36" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>

@@ -40,6 +40,12 @@
           "label": "Head Meta HTML代码",
           "info": "这部分内容会植入到站点的<head>标签内，请使用标准的 HTML 格式",
           "placeholder": "<meta name='author' content='Baklib' />"
+        },
+        "api_document": {
+          "label": "OpenAPI文档"
+        },
+        "api_document_url": {
+          "label": "OpenAPI文档URL"
         }
       }
     },
