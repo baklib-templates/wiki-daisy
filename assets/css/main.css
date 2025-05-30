@@ -2689,7 +2689,7 @@ html {
 }
 
 .navbar-start {
-  width: 50%;
+  width: 82%;
   justify-content: flex-start;
 }
 
@@ -3397,6 +3397,12 @@ html {
   line-height: 1.25rem;
   font-weight: 700;
   color: var(--fallback-bc,oklch(var(--bc)/0.4));
+}
+
+.mockup-phone .display {
+  overflow: hidden;
+  border-radius: 40px;
+  margin-top: -25px;
 }
 
 .mockup-browser .mockup-browser-toolbar .input {
@@ -5649,17 +5655,6 @@ body {
   .sl-elements-api > div:nth-child(1) .sl-bg-canvas-100 {
     background-color: #ffffff;
   }
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
-section {
-  flex: 1 0 0;
-  overflow: hidden;
 }
 
 .sl-drawer {
