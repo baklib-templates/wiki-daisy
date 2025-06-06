@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="{{ site.language }}" class="scroll-smooth" data-theme="{{ site.settings.daisy_theme.value |  default: 'light' }}">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Baklib">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% meta_tags %}
+
+    {{ 'css/viewer.min.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
+    {{ 'javascripts/main.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
+    {{ 'css/main.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
+    {{ 'css/styles.min.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
+    {{ 'javascripts/web-components.min.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
+
+
+    {%# 切换theme主题色 <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script> %}
+    {% unless site.settings.is_close_theme_select %}
+      {{ 'javascripts/theme-change-2.0.2.js' | asset_url | script_tag: data-turbo-track: 'reload' }}
+    {% endunless %}
+    <script>
+      localStorage.setItem("theme", "{{ site.settings.daisy_theme.value |  default: 'light' }}");
+    </script>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      section {
+        flex: 1 0 0;
+        overflow: hidden;
+      }
+    </style>
+
+  </head>
+  <body class="">
+    <div class="flex overflow-auto flex-col min-h-screen"
+    >
+      {% render 'header', settings: site.settings %}
+      {{ content_for_layout }}
+      {% render 'footer', settings: site.settings %}
+      {%# render 'plugins', settings: site.settings %}
+      <!-- scroll bar -->
+      <button x-show="scrolled" x-cloak
+      @click="
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      "
+      class="flex fixed right-4 bottom-4 z-50 justify-center items-center w-10 h-10 rounded-full xl:w-16 xl:h-16 bg-base-300 hover:bg-primary"
+      >
+        <svg class="w-5 h-5" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 33L24 21L36 33" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 13H36" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    <!-- Clipboard style pre-compile -->
+    <span class="flex ml-1 opacity-10 group-hover:opacity-100"></span>
+  </body>
+</html>

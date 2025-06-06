@@ -1,6 +1,5 @@
 <header id="header" class="sticky top-0 z-30">
   <nav class="{%- if page.slug == nil -%} mx-auto max-w-screen-xl {% endif %} navbar bg-base-100/90 opacity-80 shadow-sm backdrop-blur-lg justify-center items-center py-2 md:px-10 px-2 border-b border-base-content/10">
-
     <div class="navbar-start">
       <label for="my-drawer-2" class="btn btn-square btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -9,11 +8,11 @@
         </svg>
       </label>
 
-      <a href="{{site.index_path}}" class="flex-0 btn btn-ghost px-2">
-        <h1 class="flex text-xl md:text-2xl font-bold items-center">
+      <a href="{{site.index_path}}" class="px-2 flex-0 btn btn-ghost">
+        <h1 class="flex items-center text-xl font-bold md:text-2xl">
           {%- if page.slug == nil -%}
             {% assign logo = 'images/logo.png' | asset_url %}
-            <img src="{{ site.favicon_url | default: logo  }}" class="h-8 mr-3" alt="{{ site.name }} Logo">
+            <img src="{{ site.favicon_url | default: logo  }}" class="mr-3 h-8" alt="{{ site.name }} Logo">
             <span class="hidden sm:flex">{{ site.name }}</span>
           {% else %}
             {{ site.name }}
@@ -22,7 +21,7 @@
       </a>
 
       {% # PC端自定义导航菜单 %}
-      <ul class="menu menu-horizontal hidden lg:flex border-l">
+      <ul class="hidden border-l menu menu-horizontal lg:flex">
         {% if site.settings.header_menu_html %}
           {{ site.settings.header_menu_html }}
         {% else %}
@@ -33,7 +32,7 @@
 
     <div class="navbar-end">
       {% # Mobile 端自定义导航菜单 %}
-      <div class="dropdown dropdown-bottom flex lg:hidden">
+      <div class="flex dropdown dropdown-bottom lg:hidden">
         <div tabindex="0" role="button" class="btn btn-square btn-ghost">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
             class="inline-block w-5 h-5 stroke-current">
@@ -54,7 +53,7 @@
 
       {% if current_user %}
         <details class="dropdown dropdown-bottom">
-          <summary class="btn m-1">{{ current_user.name }}</summary>
+          <summary class="m-1 btn">{{ current_user.name }}</summary>
           <ul class="menu dropdown-content bg-base-300 rounded-box z-[1] w-52 p-2 shadow">
             {% if current_user.image %}
               <li>
@@ -67,7 +66,7 @@
             <li>
               {% form_tag 'sign_out' %}
                 <div class="flex">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 w-5 h-5">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
                   </svg>
                   <span>退出登录</span>
