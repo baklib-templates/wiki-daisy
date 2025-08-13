@@ -6232,3 +6232,8 @@ body {
     display: none;
   }
 }
+
+.sl-icon.fa-circle-notch {
+  position: absolute !important;
+  top: 40% !important;
+}
