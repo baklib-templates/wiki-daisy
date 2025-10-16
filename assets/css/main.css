@@ -2689,7 +2689,7 @@ html {
 }
 
 .navbar-start {
-  width: 50%;
+  width: 82%;
   justify-content: flex-start;
 }
 
@@ -6231,4 +6231,9 @@ body {
   .print\:hidden {
     display: none;
   }
+}
+
+.sl-icon.fa-circle-notch {
+  position: absolute !important;
+  top: 40% !important;
 }

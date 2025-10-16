@@ -8,14 +8,23 @@ export default class extends Controller {
   }
 
   connect() {
-    this.initializeApiDoc()
+    this.element.addEventListener('load', () => {
+      this.setApiDoc()
+    })
+
+    // 如果没有事件，延迟赋值
+    setTimeout(() => {
+      if (!this.element.apiDescriptionDocument) {
+        this.setApiDoc()
+      }
+    }, 500)
   }
 
-  async initializeApiDoc() {
-    await new Promise(resolve => setTimeout(resolve, 100))
-
-    if (this.contentValue) {
-    this.element.apiDescriptionDocument = this.contentValue
+  setApiDoc() {
+    try {
+      this.element.apiDescriptionDocument = this.contentValue
+    } catch(e) {
+      console.error(e)
     }
   }
 }
