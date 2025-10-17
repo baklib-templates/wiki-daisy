@@ -17,14 +17,13 @@
 >
   {% if children_size > 0 %}
     <details {% if expanded %} open {% else %} close {% endif %} x-on:click=" expanded = true ">
-      <summary>
+      <summary class='py-2 mb-1'>
         <a
           href="{{ page.path }}"
           data-turbo-frame="main-content"
           data-turbo-action="advance"
           class="font-semibold truncate"
           data-action="click->navtree#toggleActive"
-          @click="document.getElementById('my-drawer-2').click();"
         >
           <span>{{ page.link_text | truncate: 38}}</span>
           {% if page.settings.show_new_tag %}<div class="badge badge-primary badge-sm">New</div>{% endif %}
@@ -54,9 +53,8 @@
       href="{{ page.path }}"
       data-turbo-frame="main-content"
       data-turbo-action="advance"
-      class="current"
+      class="current py-2"
       data-action="click->navtree#toggleActive"
-      @click="document.getElementById('my-drawer-2').click();"
     >
       <span>{{ page.link_text | truncate: 38 }}</span>
       {% if page.settings.show_new_tag %}<div class="badge badge-primary badge-sm">New</div>{% endif %}

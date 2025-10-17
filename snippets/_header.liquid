@@ -1,81 +1,44 @@
-<header id="header" class="sticky top-0 z-30">
-  <nav class="{%- if page.slug == nil -%} mx-auto max-w-screen-xl {% endif %} navbar bg-base-100/90 opacity-80 shadow-sm backdrop-blur-lg justify-center items-center py-2 md:px-10 px-2 border-b border-base-content/10">
-    <div class="navbar-start">
-      <label for="my-drawer-2" class="btn btn-square btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-          class="inline-block w-5 h-5 stroke-current">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </label>
+{% if site.settings.header_type.value == '0' %}
+{% else %}
+  {% assign header_bg_color = site.settings.header_bg_color | presence | default: '#fff' %}
+  {% assign header_text_color = site.settings.header_text_color | presence | default: '#000' %}
+{% endif %}
 
-      <a href="{{site.index_path}}" class="px-2 flex-0 btn btn-ghost">
-        <h1 class="flex items-center text-xl font-bold md:text-2xl">
-          {%- if page.slug == nil -%}
-            {% assign logo = 'images/logo.png' | asset_url %}
-            <img src="{{ site.favicon_url | default: logo  }}" class="mr-3 h-8" alt="{{ site.name }} Logo">
-            <span class="hidden sm:flex">{{ site.name }}</span>
-          {% else %}
-            {{ site.name }}
-          {% endif %}
-        </h1>
-      </a>
-
-      {% # PC端自定义导航菜单 %}
-      <ul class="hidden border-l menu menu-horizontal lg:flex">
-        {% if site.settings.header_menu_html %}
-          {{ site.settings.header_menu_html }}
-        {% else %}
-          <li><a href="{{ statics['about'] }}">About</a></li>
-        {% endif %}
-      </ul>
-    </div>
-
-    <div class="navbar-end">
-      {% # Mobile 端自定义导航菜单 %}
-      <div class="flex dropdown dropdown-bottom lg:hidden">
-        <div tabindex="0" role="button" class="btn btn-square btn-ghost">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-            class="inline-block w-5 h-5 stroke-current">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
+<header
+  class="js--header sticky top-0 z-50 flex flex-col h-16 w-full px-4 [transform:translate3d(0,0,0)] justify-center backdrop-blur transition-shadow duration-100 print:hidden shadow-sm
+         bg-[var(--header-bg)] text-[var(--header-text)]
+         dark:bg-[var(--header-bg-dark)] dark:text-[var(--header-text-dark)]"
+  style="
+    --header-bg: {{ header_bg_color }};
+    --header-text: {{ header_text_color }};
+    --header-bg-dark: {{ site.settings.header_bg_color_dark | default: '--color-primary' }};
+    --header-text-dark: {{ site.settings.header_text_color_dark | default: '--color-primary-content' }};
+  "
+>
+  <nav class="navbar py-0 max-w-[var(--max-content-width)] mx-auto px-0 flex w-full">
+    <div class="flex items-center justify-between gap-2 lg:gap-4 min-w-0 w-full">
+      {% render 'header_logo' title_style: 'font-bold text-xl md:text-2xl text-base-content/80' %}
+      {% assign header_menu_html = site.settings.header_menu_html | presence %}
+      {% if header_menu_html %}
+        {% comment %} 分割线 {% endcomment %}
+        <div class="hidden md:block w-px h-10 bg-base-300"></div>
+        <div class="hidden md:flex flex-1 min-w-0">
+          <div class="flex items-center gap-6">{{ header_menu_html }}</div>
         </div>
-        <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-          {% if site.settings.header_menu_html %}
-            {{ site.settings.header_menu_html }}
-          {% else %}
-            <li><a href="{{ statics['/about'] }}">About</a></li>
-          {% endif %}
-        </ul>
-      </div>
-
-      <!--主题切换-->
-      {% render 'select_daisy_theme' %}
-
-      {% if current_user %}
-        <details class="dropdown dropdown-bottom">
-          <summary class="m-1 btn">{{ current_user.name }}</summary>
-          <ul class="menu dropdown-content bg-base-300 rounded-box z-[1] w-52 p-2 shadow">
-            {% if current_user.image %}
-              <li>
-                <div class="flex">
-                  <img src="{{current_user.image}}" class="w-6 h-6 rounded-full" />
-                  <div>{{ current_user.name }}</div>
-                </div>
-              </li>
-            {% endif %}
-            <li>
-              {% form_tag 'sign_out' %}
-                <div class="flex">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
-                  </svg>
-                  <span>退出登录</span>
-                </div>
-              {% endform_tag %}
-            </li>
-          </ul>
-        </details>
+      {% else %}
+        <div class="hidden md:block w-px h-10 bg-base-300"></div>
+        <div class="hidden md:flex flex-1 min-w-0">
+          <div class="flex items-center gap-6">
+            <ul class="menu menu-horizontal pl-0">
+              <li><a class='flex items-center space-x-1 inner-block group hover:underline hover:text-primary' href="{{ statics['about'] }}">About</a></li>
+            </ul>
+          </div>
+        </div>
       {% endif %}
+
+      <div class='md:hidden flex'>
+        {% render 'header_drawer' %}
+      </div>
     </div>
   </nav>
 </header>

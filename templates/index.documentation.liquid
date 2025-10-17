@@ -3,11 +3,11 @@
   <!-- Hero Section -->
   {% render 'hero', page: page %}
   <!-- Pages Section -->
-  <section class="bg-transparent">
-    <div class="mx-auto max-w-screen-xl px-4 mt-8 sm:px-6">
+  <section class="bg-transparent px-4">
+    <div class="mx-auto max-w-[var(--max-content-width)]">
       {% # 列表指南- Guide %}
       {% assign card_pages = site.pages['/'].children_in_nav_menu  | limit: 9 %}
-      <div class="items-start lg:max-w-none grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-16">
+      <div class="items-start lg:max-w-none grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12 mt-12">
         {% for card_page in card_pages %}
           <!-- Card -->
           <div class="card flex flex-col h-full bg-base-100 bg-opacity-50 border shadow-md shadow-base-200 overflow-hidden">
@@ -110,24 +110,24 @@
           "type": "image_picker",
           "ratio": "19:6",
           "width": 900,
-          "label": "t:settings_schema.generic.settings.hero_image_url.label",
-          "info": "t:settings_schema.generic.settings.hero_image_url.info"
+          "label": "t:schema.templates.index.documentation.settings.hero_image_url.label",
+          "info": "t:schema.templates.index.documentation.settings.hero_image_url.info"
         },
         {
-          "id": "title",
+          "id": "hero_slogan",
           "type": "text",
-          "label": "t:settings_schema.generic.settings.title.label",
+          "label": "t:schema.templates.index.documentation.settings.hero_slogan.label",
           "default": "Knowledge base site"
         },
         {
-          "id": "description",
+          "id": "hero_description",
           "type": "text",
-          "label": "t:settings_schema.generic.settings.description.label",
+          "label": "t:schema.templates.index.documentation.settings.hero_description.label",
           "default": "👋 What Can We Help?"
         },
         {
           "id": "hot_tags",
-          "label": "t:settings_schema.generic.settings.hot_tags.label",
+          "label": "t:schema.templates.index.documentation.settings.hot_tags.label",
           "type": "text",
           "placeholder": "sign in,install,account,how to"
         },

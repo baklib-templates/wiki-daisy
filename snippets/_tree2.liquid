@@ -10,7 +10,6 @@
           data-turbo-frame="main-content"
           data-turbo-action="advance"
           data-action="click->navtree#toggleActive"
-          @click="document.getElementById('my-drawer-2').click();"
         >
           ...
         </a>
@@ -27,7 +26,6 @@
               data-turbo-frame="main-content"
               data-turbo-action="advance"
               data-action="click->navtree#toggleActive"
-              @click="document.getElementById('my-drawer-2').click();"
             >
                 {{ sub_page.link_text | truncate: 28 }}
                 {% if sub_page.settings.show_new_tag %}<div class="badge badge-primary badge-sm">New</div>{% endif %}
@@ -42,7 +40,6 @@
       data-turbo-frame="main-content"
       data-turbo-action="advance"
       data-action="click->navtree#toggleActive"
-      @click="document.getElementById('my-drawer-2').click();"
     >
       {{ page.link_text | truncate: 28 }}
       {% if page.settings.show_new_tag %}<div class="badge badge-primary badge-sm">New</div>{% endif %}

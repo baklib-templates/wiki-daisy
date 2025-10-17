@@ -1,55 +1,45 @@
-{%# layout 'documentation' %}
-{% assign pages = page.children_in_list %}
+{% layout 'page_layout' %}
+{% assign sub_pages = page.children_in_list %}
+{% assign sub_pages_size = sub_pages | size %}
 
-
-<!-- ========== MAIN CONTENT ========== -->
-{%# data-turbo-action="advance" 修复栏目列表点击后，URL 不改变的问题。%}
-<turbo-frame id="main-content" data-turbo-action="advance">
-  <div class="flex justify-between p-5 md:p-10 md:pt-10 xl:gap-20">
-    <article class="flex flex-col max-w-5xl">
-        {% # 面包屑导航 %}
-        <div class="text-sm breadcrumbs pt-0 pb-4">
+{% comment %} 页面内容部分 {% endcomment %}
+<turbo-frame id="main-content" class='w-full flex-1' x-init="
+               $el.addEventListener('turbo:before-fetch-request', () => {
+                 $el.scrollTop = 0
+                 window.scrollTo({ top: 0, behavior: 'instant' })
+               })
+             "
+>
+  <div class='w-full group'>
+    <div class='w-full grid grid-cols-[1fr_var(--right-sidebar-width)] gap-6 group-[.has-right_feature_block]:lg:grid-cols-[1fr_var(--right-sidebar-width)]'>
+      <!-- 中间内容 -->
+      <div class="flex flex-col px-4 md:pl-10 md:pr-0 py-6 overflow-x-hidden relative">
+        {% comment %} 背景 Hero, 可选 {% endcomment %}
+        {% if true %}
+          <div class="absolute inset-x-0 overflow-hidden top-0 -z-10 transform-gpu blur-3xl sm:-top-80" aria-hidden="true">
+            <div class="relative -left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary to-secondary opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+          </div>
+        {% endif %}
+        {% comment %} 面包屑导航 {% endcomment %}
+        <div class="text-sm breadcrumbs pt-0 pb-6">
           {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
         </div>
+        {% comment %} 页面正文 {% endcomment %}
+        {% render 'page_list', page: page, sub_pages: sub_pages %}
+      </div>
 
-        <section class="mb-10 max-w-3xl">
-          <div>
-            <h1 class="flex items-center mb-2 text-2xl font-bold sm:text-3xl xl:text-4xl">
-              {{ page.settings.title }}
-            </h1>
-            <div class="flow-root mt-8">
-              <div class="overflow-auto">
-                <div data-controller="view_images"
-                  class="ProseMirror break-words scroll-mt-96 scroll-pt-72">
-                  {{ page.settings.content }}
-                </div>
-              </div>
-            </div>
+      <!-- 右侧 feature block -->
+      {% assign right_features_block = site.settings.features_one | presence %}
+      {% if right_features_block | present? %}
+        <div class="print:hidden hidden lg:block">
+          <div class="sticky top-[calc(var(--header-height)_+_1.5rem)] h-[calc(100vh-var(--header-height)-4rem)] max-w-full w-full overflow-auto border-l border-base-200" data-toc-target="menu">
+            {{ site.settings.features_one }}
           </div>
-
-          <div class="divider my-5"></div>
-          {% paginate_tag pages, per: 25 %}
-            <ul class="list-disc list-inside space-y-2">
-              {% for sub_page in pages %}
-                <li><a href="{{ sub_page.path }}" class="text-md text-wrap">{{ sub_page.link_text }}</a></li>
-              {% endfor %}
-            </ul>
-            <!-- Pagination -->
-            {% render 'paginate', paginate: paginate %}
-          {% endpaginate_tag %}
-        </section>
-    </article>
-    {% # 栏目页右边栏，可选 %}
-    <div class="hidden w-64 xl:sticky xl:block xl:top-28">
-      <!-- Features One -->
-      {% if site.settings.features_one %}
-        {{ site.settings.features_one }}
+        </div>
       {% endif %}
-      <!--Features One -->
     </div>
   </div>
 </turbo-frame>
-<!-- ========== END SECONDARY CONTENT ========== -->
 
 {% schema %}
     {
@@ -78,9 +68,9 @@
       {
         "id": "content",
         "type": "richtext",
-        "label": "t:settings_schema.page.settings.content.label",
+        "label": "t:schema.templates.page.channel.settings.content.label",
         "readonly": true,
-        "info": "t:settings_schema.page.settings.content.info"
+        "info": "t:schema.templates.page.channel.settings.content.info"
       }
     ]
     }

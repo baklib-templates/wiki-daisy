@@ -1,34 +1,48 @@
-{%# layout 'documentation' %}
+{% layout 'page_layout' %}
 {% assign sub_pages = page.children_in_list %}
 {% assign sub_pages_size = sub_pages | size %}
-{% assign default_avatar_url = 'images/avatar.svg' | asset_url %}
-
-{% comment %} 背景 Hero, 可选 {% endcomment %}
-{% if true %}
-  <div class="absolute inset-x-0 overflow-hidden -top-40 -z-10 transform-gpu blur-3xl sm:-top-80" aria-hidden="true">
-    <div class="relative -left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary to-secondary opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-  </div>
-{% endif %}
 
 {% comment %} 页面内容部分 {% endcomment %}
-<turbo-frame id="main-content">
-  <div class="flex p-5 md:p-10 md:pt-10 xl:gap-20 max-w-full overflow-x-auto">
-      <article class="flex flex-col">
-          {% # 面包屑导航 %}
-          <div class="text-sm breadcrumbs pt-0 pb-4">
-            {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
+<turbo-frame id="main-content" class='w-full flex-1' x-init="
+               $el.addEventListener('turbo:before-fetch-request', () => {
+                 $el.scrollTop = 0
+                 window.scrollTo({ top: 0, behavior: 'instant' })
+               })
+             "
+>
+  <div
+    data-controller="toc"
+    data-toc-header-selector-value=".js--header"
+    data-toc-offset-value="10"
+    data-toc-clipboard-success-value="{{ 'templates.page.copy_success' | t: '链接已复制' }}"
+    class='w-full group'
+  >
+    <div class='w-full grid lg:grid-cols-[1fr_var(--right-sidebar-width)] gap-6 group-[.has-toc]:lg:grid-cols-[1fr_var(--right-sidebar-width)]'>
+      <!-- 中间内容 -->
+      <div class="flex flex-col px-4 lg:pl-10 md:pr-0 py-6 overflow-x-hidden relative">
+        {% comment %} 背景 Hero, 可选 {% endcomment %}
+        {% if true %}
+          <div class="absolute inset-x-0 overflow-hidden top-0 -z-10 transform-gpu blur-3xl sm:-top-80" aria-hidden="true">
+            <div class="relative -left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary to-secondary opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
           </div>
-          {% # 页面正文 %}
-          {% render 'page', page: page, default_avatar_url: default_avatar_url %}
-      </article>
-      <!-- in page nav -->
-      <nav class="hidden w-64 xl:block shrink-0 print:hidden" data-controller="menu">
-        <div class="fixed w-64 pt-12 pb-8 top-12">
-          <div class="border-l border-slate-200 dark:border-base h-[680px]">
-            <div class="text-sm space-y-3 overflow-y-hidden hover:overflow-y-auto max-h-full" data-menu-target="links"></div>
+        {% endif %}
+        {% comment %} 面包屑导航 {% endcomment %}
+        <div class="text-sm breadcrumbs pt-0 pb-6">
+          {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
+        </div>
+        {% comment %} 页面正文 {% endcomment %}
+        {% render 'page', page: page %}
+      </div>
+
+      <!-- 右侧 TOC -->
+      <div class="print:hidden hidden lg:block">
+        <div class="sticky top-[calc(var(--header-height)_+_1.5rem)] h-[calc(100vh-var(--header-height)-4rem)] max-w-full w-full overflow-auto border-l border-base-200" data-toc-target="menu">
+          <div class="menu w-full">
+            <div data-toc-target="links"></div>
           </div>
         </div>
-      </nav>
+      </div>
+    </div>
   </div>
 </turbo-frame>
 
@@ -47,7 +61,7 @@
         "id": "tags",
         "type": "tag_picker",
         "multiple": true,
-        "label": "t:settings_schema.page.settings.tags.label"
+        "label": "t:schema.templates.page.settings.tags.label"
       },
       {
         "id": "description",
@@ -65,9 +79,9 @@
       {
         "id": "content",
         "type": "richtext",
-        "label": "t:settings_schema.page.settings.content.label",
+        "label": "t:schema.templates.page.settings.content.label",
         "readonly": true,
-        "info": "t:settings_schema.page.settings.content.info"
+        "info": "t:schema.templates.page.settings.content.info"
       }
     ]
   }

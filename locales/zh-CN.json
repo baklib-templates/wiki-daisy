@@ -1,48 +1,39 @@
 {
-  "theme_label": "Daisy Wiki",
-  "theme_description": "基于DaisyUI构建的内容驱动型知识库门户。多主题风格，多组件样式，适合定制化系统。",
   "generic": {
-    "menu": "菜单",
     "theme": "主题",
-    "close": "关闭",
     "back": "返回",
-    "search": "搜索",
     "popular_search": "热门搜索",
-    "search_result": "搜索结果",
-    "index": "首页",
-    "articles": "篇文章",
     "read_more": "阅读更多",
-    "404": "404 页面找不到",
-    "403": "403 无访问权限",
     "empty": "内容为空",
-    "sub_page_list": "子页面列表",
-    "prev_page": "上一页",
-    "next_page": "下一页",
     "copyright": "版权所有",
     "published_at": "发布于",
     "hot_pages": "热门话题",
-    "recent_pages": "最近文章",
-    "tags": "标签"
+    "feedback_created_at": "上次反馈于"
   },
   "placeholders": {
-    "search": "在站内搜索",
-    "input_password": "输入密码"
+    "search": "在站内搜索"
   },
-  "search": {
-    "search_title": "站内搜索",
-    "no_results": "没有结果"
+  "templates": {
+    "page": {
+      "copy_success": "链接已复制"
+    }
   },
-  "buttons": {
-    "submit": "提交",
-    "login": "登录",
-    "sso_login": "SSO 登录",
-    "baklib_login": "Baklib 账号登录"
-  },
-  "prompts": {
-    "page_restricted": "本页面需要认证才可以被访问"
-  },
-  "feedback": {
-    "title": "提交反馈",
-    "input_placeholder": "请输入反馈内容"
+  "snippets": {
+    "feedback_form": {
+      "title": "提交反馈",
+      "message_label": "留言",
+      "message_placeholder": "请输入反馈内容",
+      "message_required": "反馈内容不能为空",
+      "submit": "提交",
+      "cancel": "取消"
+    },
+    "feedback_button": {
+      "title_posted": "感谢您的反馈",
+      "title_unposted": "提交反馈"
+    },
+    "page": {
+      "prev_page": "上一页",
+      "next_page": "下一页"
+    }
   }
 }

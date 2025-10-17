@@ -1,71 +1,105 @@
 {
-  "settings_schema": {
-    "generic": {
-      "name": "站点基本信息设置",
-      "help_center_index_description": "功能丰富的产品知识库样式",
-      "list_index_description": "首页目录列表样式",
-      "header_name": "页头页尾导航菜单",
-      "head_title": "Head HTML 配置",
-      "settings": {
-        "hero_image_url": {
-          "label": "首页背景大图",
-          "info": "用于部分主题首页的背景横幅，建议1900*600px的深色图片"
-        },
-        "title": {
-          "label": "站点标题"
-        },
-        "description": {
-          "label": "站点描述"
-        },
-        "hot_tags": {
+  "theme_label": "Daisy Wiki",
+  "theme_description": "基于DaisyUI构建的内容驱动型知识库门户。多主题风格，多组件样式，适合定制化系统。",
+  "generic": {
+    "name": "站点基本信息设置",
+    "settings": {
+      "company_name": {
+        "label": "公司名称",
+        "default": "Baklib.cn"
+      },
+      "copyright_info": {
+        "label": "备案/版权信息",
+        "default": "蜀ICP备15035023号"
+      }
+    }
+  },
+  "custom_html": {
+    "settings": {
+      "footer_menu_html": {
+        "label": "底部区域插入 HTML 代码(footer 内，footer_menu_html)",
+        "info": "支持HTML标签和有限的TailwindCSS样式代码",
+        "placeholder": "通常在这里插入公司其他网站的外部导航链接、友情链接、SEO 优化链接等"
+      },
+      "header_menu_html": {
+        "label": "顶部导航区域插入 HTML 代码",
+        "info": "支持HTML标签和有限的TailwindCSS样式代码",
+        "placeholder": "通常在这里插入公司其他网站的导航链接"
+      },
+      "head_html": {
+        "label": "Head Meta HTML代码",
+        "info": "这部分内容会植入到站点的<head>标签内，请使用标准的 HTML 格式",
+        "placeholder": "例如: <meta name='author' content='Baklib' />"
+      }
+    },
+    "name": "自定义 HTML 代码"
+  },
+  "templates": {
+    "index": {
+      "documentation": {
+        "settings": {
+          "hero_image_url": {
+            "label": "背景图",
+            "info": "背景图会根据页面宽度和背景高度自动裁剪"
+          },
+          "hero_slogan": {
+            "label": "标语标题"
+          },
+          "hero_description": {
+            "label": "标语描述"
+          },
+          "hot_tags": {
             "label": "热搜关键词（请用英文逗号「,」分隔）"
-        },
-        "copyright_info": {
-          "label": "备案/版权信息",
-          "default": "蜀ICP备15035023号"
-        },
-        "company_name": {
-          "label": "公司名称",
-          "default": "Baklib.cn"
-        },
-        "header_menu_html": {
-          "label": "Header页头导航菜单",
-          "info": "支持HTML标签和TailwindCss样式代码"
-        },
-        "footer_menu_html": {
-          "label": "Footer页尾导航菜单",
-          "info": "支持HTML标签和TailwindCss样式代码"
-        },
-        "head_html": {
-          "label": "Head Meta HTML代码",
-          "info": "这部分内容会植入到站点的<head>标签内，请使用标准的 HTML 格式",
-          "placeholder": "<meta name='author' content='Baklib' />"
-        },
-        "api_document": {
-          "label": "OpenAPI文档"
-        },
-        "api_document_url": {
-          "label": "OpenAPI文档URL"
+          }
+        }
+      },
+      "portal": {
+        "settings": {
+          "hero_image_url": {
+            "label": "背景图",
+            "info": "背景图会根据页面宽度和背景高度自动裁剪"
+          },
+          "hero_slogan": {
+            "label": "标语标题"
+          },
+          "hero_description": {
+            "label": "标语描述"
+          },
+          "hot_tags": {
+            "label": "热搜关键词（请用英文逗号「,」分隔）"
+          }
         }
       }
     },
     "page": {
-      "name": "页面",
-      "description": "文档内容页面",
       "settings": {
-        "description":{
-          "label": "页面描述"
+        "tags": {
+          "label": "标签"
         },
-        "content":{
+        "content": {
           "label": "内容",
           "info": "同步自数据源，不可编辑"
-        },
-        "icon": {
-          "label": "页面图标",
-          "info": "用于显示页面图标，建议1:1比例"
-        },
-        "tags":{
-          "label": "标签"
+        }
+      },
+      "api": {
+        "settings": {
+          "title": {
+            "label": "标题"
+          },
+          "api_document": {
+            "label": "OpenAPI文档"
+          },
+          "api_document_url": {
+            "label": "OpenAPI文档URL"
+          }
+        }
+      },
+      "channel": {
+        "settings": {
+          "content": {
+            "label": "内容",
+            "info": "同步自数据源，不可编辑"
+          }
         }
       }
     }

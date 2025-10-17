@@ -2,11 +2,12 @@
   {
     "name": "theme_info",
     "theme_name": "daisy_wiki",
-    "theme_label": "t:theme_label",
+    "theme_label": "t:schema.theme_label",
     "theme_version": "1.0.0",
     "theme_scope": "wiki",
     "theme_author": "Baklib",
-    "theme_description": "t:theme_description",
+    "theme_syntax_version": "v2",
+    "theme_description": "t:schema.theme_description",
     "theme_documentation_url": "https://help.baklib.cn/themes/daisy-wiki",
     "theme_support_url": "https://help.baklib.cn/themes/daisy-wiki/settings",
     "theme_thumb_url": "images/theme/thumb.png",
@@ -63,19 +64,19 @@
     }
   },
   {
-    "name": "t:settings_schema.generic.name",
+    "name": "t:schema.generic.name",
     "settings": [
       {
         "id": "company_name",
-        "label": "t:settings_schema.generic.settings.company_name.label",
+        "label": "t:schema.generic.settings.company_name.label",
         "type": "text",
-        "default": "t:settings_schema.generic.settings.company_name.default"
+        "default": "t:schema.generic.settings.company_name.default"
       },
       {
         "id": "copyright_info",
         "type": "text",
-        "label": "t:settings_schema.generic.settings.copyright_info.label",
-        "default": "t:settings_schema.generic.settings.copyright_info.default"
+        "label": "t:schema.generic.settings.copyright_info.label",
+        "default": "t:schema.generic.settings.copyright_info.default"
       },
       {
         "id": "is_allow_published_at",
@@ -112,33 +113,33 @@
     ]
   },
   {
-    "name": "t:settings_schema.generic.header_name",
+    "name": "t:schema.custom_html.name",
     "settings": [
       {
         "id": "header_menu_html",
         "type": "html",
-        "label": "t:settings_schema.generic.settings.header_menu_html.label",
+        "label": "t:schema.custom_html.settings.header_menu_html.label",
         "rows": 10,
-        "placeholder": "<li><a href='#'> title </a></li>"
-      }
-    ]
-  },
-  {
-    "name": "t:settings_schema.generic.head_title",
-    "settings": [
+        "info": "t:schema.custom_html.settings.header_menu_html.info",
+        "placeholder": "t:schema.custom_html.settings.header_menu_html.placeholder",
+        "default": "preset:header_menus.html"
+      },
+      {
+        "id": "footer_menu_html",
+        "type": "html",
+        "label": "t:schema.custom_html.settings.footer_menu_html.label",
+        "info": "t:schema.custom_html.settings.footer_menu_html.info",
+        "rows": 6,
+        "placeholder": "t:schema.custom_html.settings.footer_menu_html.placeholder"
+      },
       {
         "id": "head_html",
         "type": "html",
-        "label": "t:settings_schema.generic.settings.head_html.label",
-        "info": "t:settings_schema.generic.settings.head_html.info",
+        "label": "t:schema.custom_html.settings.head_html.label",
+        "info": "t:schema.custom_html.settings.head_html.info",
         "rows": 10,
-        "placeholder": "t:settings_schema.generic.settings.head_html.placeholder"
-      }
-    ]
-  },
-  {
-    "name": "自定义 HTML 代码块",
-    "settings": [
+        "placeholder": "t:schema.custom_html.settings.head_html.placeholder"
+      },
       {
         "id": "features_one",
         "type": "html",

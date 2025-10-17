@@ -1,65 +1,105 @@
 {
-  "settings_schema": {
-    "generic": {
-      "name": "Réglage de base",
-      "help_center_index_description": "Idéal pour les manuels d'utilisation de produits riches en fonctionnalités",
-      "list_index_description": "style de dictionnaire de liste",
-      "header_name": "Menu d'en-tête et de pied de page",
-      "head_title": "Paramètres HTML de la tête",
-      "settings": {
-        "hero_image_url": {
-          "label": "Bannière de héros",
-          "info": "Pour le thème d’index du centre d’aide, une taille de 1 900 x 600 px est recommandée."
-        },
-        "title": {
-          "label": "Titre du site"
-        },
-        "description": {
-          "label": "Description du site"
-        },
-        "hot_tags": {
-          "label": "Mots-clés de recherche chauds (veuillez les séparer par une virgule anglaise : ,)"
-        },
-        "company_name": {
-          "label": "Nom de l'entreprise",
-          "default": "Tanmer inc."
-        },
-        "copyright_info": {
-          "label": "Informations sur les droits d'auteur",
-          "default": "Tous les droits d'auteur sont respectés"
-        },
-        "header_menu_html": {
-          "label": "Menu de navigation de l'en-tête",
-          "info": "Prend en charge le code HTML、Javascript et TailwindCss"
-        },
-        "footer_menu_html": {
-          "label": "Menu de navigation en pied de page",
-          "info": "Prend en charge le code HTML、Javascript et TailwindCss"
-        },
-        "head_html": {
-          "label": "Tête Code HTML",
-          "info": "Cette partie du contenu sera intégrée dans le <head> balise du site. ",
-          "placeholder": "<meta name='author' content='Baklib' />"
+  "theme_label": "Daisy Wiki",
+  "theme_description": "Portail de base de connaissances axé sur le contenu construit sur daisyui. Style Multi - thème, style Multi - composant, adapté aux systèmes personnalisés.",
+  "generic": {
+    "name": "Paramètres des informations de base du site",
+    "settings": {
+      "company_name": {
+        "label": "Nom de l'entreprise",
+        "default": "Baklib.cn"
+      },
+      "copyright_info": {
+        "label": "Dépôt / informations de copyright",
+        "default": "Shu ICP réserve no.15035023"
+      }
+    }
+  },
+  "custom_html": {
+    "settings": {
+      "footer_menu_html": {
+        "label": "La zone inférieure insère le code HTML (dans footer, footer_menu_html)",
+        "info": "Prise en charge des balises HTML et du Code de style tailwindcss limité",
+        "placeholder": "Insérez généralement ici des liens de navigation externes vers d'autres sites Web de l'entreprise, des liens amicaux, des liens optimisés pour le référencement, etc."
+      },
+      "header_menu_html": {
+        "label": "Zone de navigation supérieure insérer le code HTML",
+        "info": "Prise en charge des balises HTML et du Code de style tailwindcss limité",
+        "placeholder": "Insérez généralement ici des liens de navigation vers d'autres sites Web de la société"
+      },
+      "head_html": {
+        "label": "Head Meta code HTML pour",
+        "info": "Cette partie du contenu est implantée dans la balise < Head > de votre site, utilisez le format HTML standard.",
+        "placeholder": "Par exemple: < META NAME = 'author' Content = 'baklib' / >"
+      }
+    },
+    "name": "Code HTML personnalisé"
+  },
+  "templates": {
+    "index": {
+      "documentation": {
+        "settings": {
+          "hero_image_url": {
+            "label": "Diagramme de fond",
+            "info": "Le diagramme d'arrière - plan est automatiquement recadré en fonction de la largeur de la page et de la hauteur de l'arrière - plan"
+          },
+          "hot_tags": {
+            "label": "Mots - clés de recherche chaude (veuillez les séparer par une virgule anglaise «, »)"
+          },
+          "hero_slogan": {
+            "label": "Titre du slogan"
+          },
+          "hero_description": {
+            "label": "Description du slogan"
+          }
+        }
+      },
+      "portal": {
+        "settings": {
+          "hero_image_url": {
+            "label": "Diagramme de fond",
+            "info": "Le diagramme d'arrière - plan est automatiquement recadré en fonction de la largeur de la page et de la hauteur de l'arrière - plan"
+          },
+          "hot_tags": {
+            "label": "Mots - clés de recherche chaude (veuillez les séparer par une virgule anglaise «, »)"
+          },
+          "hero_slogan": {
+            "label": "Titre du slogan"
+          },
+          "hero_description": {
+            "label": "Description du slogan"
+          }
         }
       }
     },
     "page": {
-      "name": "Page",
-      "description": "Page de contenu du document",
+      "api": {
+        "settings": {
+          "title": {
+            "label": "Titre"
+          },
+          "api_document": {
+            "label": "Documentation openapi"
+          },
+          "api_document_url": {
+            "label": "URL du document openapi"
+          }
+        }
+      },
+      "channel": {
+        "settings": {
+          "content": {
+            "label": "contenu",
+            "info": "Synchronisation à partir de sources de données, non modifiable"
+          }
+        }
+      },
       "settings": {
-        "description": {
-          "label": "Description"
+        "tags": {
+          "label": "étiquette"
         },
         "content": {
-          "label": "Contenu",
-          "info": "Synchronisé à partir de la source de données, ne peut pas être modifié"
-        },
-        "icon": {
-          "label": "ICÔNE",
-          "info": "Un rapport 1:1 est recommandé"
-        },
-        "tags": {
-          "label": "Mots clés"
+          "label": "contenu",
+          "info": "Synchronisation à partir de sources de données, non modifiable"
         }
       }
     }

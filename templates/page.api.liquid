@@ -2,52 +2,54 @@
 
 <section id="table-of-contents" aria-labelledby="table-of-contents-title" class="">
   {% if page.settings.api_document %}
-  <elements-api
-  data-controller="element_doc"
-  data-element_doc-content-value="{{ page.settings.api_document }}"
-  router="hash"
-  hideTryIt = "true"
-  layout="responsive"
-  />
+    <elements-api
+      data-controller="element_doc"
+      data-element_doc-content-value="{{ page.settings.api_document }}"
+      router="hash"
+      hideTryIt="true"
+      layout="responsive"
+    />
   {% endif %}
 
   {% if page.settings.api_document_url %}
     <elements-api
-    apiDescriptionUrl="{{ page.settings.api_document_url }}"
-    router="hash"
-    hideTryIt = "true"
-    layout="responsive"
+      apiDescriptionUrl="{{ page.settings.api_document_url }}"
+      router="hash"
+      hideTryIt = "true"
+      layout="responsive"
+      x-data
     />
   {% endif %}
 </section>
 
 
+
 {% schema %}
-{
-"name": "api-doc",
-"description": "openapi doc",
-"thumb_url": "images/theme/api-doc.png",
-"preview_image_urls": [
-"images/theme/api-doc.png"
-],
-"sub_page_templates": ["page"],
-"settings": [
-{
-"id": "title",
-"type": "text",
-"label": "t:settings_schema.generic.settings.title.label",
-"default": "Knowledge base site"
-},
-{
-"id": "api_document",
-"type": "textarea",
-"label": "t:settings_schema.generic.settings.api_document.label"
-},
-{
-"id": "api_document_url",
-"type": "text",
-"label": "t:settings_schema.generic.settings.api_document_url.label"
-}
-]
-}
+  {
+    "name": "api-doc",
+    "description": "openapi doc",
+    "thumb_url": "images/theme/api-doc.png",
+    "preview_image_urls": [
+      "images/theme/api-doc.png"
+    ],
+    "sub_page_templates": ["page"],
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "t:schema.templates.page.api.settings.title.label",
+        "default": "Knowledge base site"
+      },
+      {
+        "id": "api_document",
+        "type": "textarea",
+        "label": "t:schema.templates.page.api.settings.api_document.label"
+      },
+      {
+        "id": "api_document_url",
+        "type": "text",
+        "label": "t:schema.templates.page.api.settings.api_document_url.label"
+      }
+    ]
+  }
 {% endschema %}
