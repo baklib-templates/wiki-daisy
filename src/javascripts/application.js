@@ -32,3 +32,35 @@ window.addEventListener('click', function (e) {
 window.Alpine = Alpine
 Alpine.plugin(collapse)
 Alpine.start()
+
+
+// 主要用于在不同layout切换页面时, turbo_frame id不同，栏目树中链接又只能指向一个turbo_frame id
+document.addEventListener("turbo:frame-missing", (e) => {
+  e.preventDefault()
+
+  const frame = e.detail?.frame
+  const response = e.detail?.response
+
+  // if (!frame) {
+  //   console.warn("⚠️ turbo:frame-missing 触发，但未找到 frame 对象", e.detail)
+  // }
+
+  const frameId = frame?.id || "unknown"
+  // console.log(`Turbo frame "${frameId}" missing, fallback to full reload.`)
+
+  const redirectUrl =
+    response?.url ||
+    frame?.src ||
+    frame?.dataset?.src ||
+    window.location.href
+
+  if (redirectUrl) {
+    if (window.Turbo) {
+      window.Turbo.visit(redirectUrl, { action: "replace" })
+    } else {
+      window.location.href = redirectUrl
+    }
+  } else {
+    window.location.reload()
+  }
+})

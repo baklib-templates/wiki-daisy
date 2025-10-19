@@ -9,19 +9,19 @@
   <div class="px-4 mx-auto max-w-[calc(var(--max-content-width)*0.8)]">
     <!-- 栏目列表 -->
     {% paginate_tag card_pages, per: limit_page_count %}
-      <ol role="list" class="mt-4 space-y-4 md:mt-8 sm:space-y-8">
+      <ol role="list" class="mt-6 space-y-8 md:mt-8 sm:space-y-8">
         {% for card_page in card_pages %}
           <li>
             <div class="flex justify-start items-center">
               {% if card_page.settings.icon %}
                 <span class="mr-4"><img src="{{ card_page.settings.icon }}" class="h-10"/> </span>
               {% endif %}
-              <h3 class="text-2xl font-bold font-display lg:text-3xl line-clamp-1">{{ card_page.link_text}}</h3>
+              <h3 class="text-xl md:text-2xl font-bold font-display lg:text-3xl line-clamp-1">{{ card_page.link_text}}</h3>
             </div>
 
             {% assign sub_pages = card_page.children_in_list | limit: limit_page_count %}
             <!-- 页面列表 -->
-            <ol role="list" class="px-6 py-3 mt-8 text-base rounded-2xl divide-y divide-base-300 bg-base-300 sm:px-8 sm:py-7">
+            <ol role="list" class="px-6 py-3 mt-4 text-base rounded-2xl divide-y divide-base-300 bg-base-300 sm:px-8 sm:py-7">
               {% for sub_page in sub_pages %}
                 <li class="flex justify-between items-center hover:underline hover:bg-base-content/5" aria-label="{{ sub_page.link_text }} ">
                   <a href="{{ sub_page.path }}" class="py-3 font-medium flex-1" aria-hidden="true">{{ sub_page.link_text }}</a>

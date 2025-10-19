@@ -1,28 +1,17 @@
 {% layout 'api_doc' %}
 
-<section id="table-of-contents" aria-labelledby="table-of-contents-title" class="">
-  {% if page.settings.api_document %}
-    <elements-api
-      data-controller="element_doc"
-      data-element_doc-content-value="{{ page.settings.api_document }}"
-      router="hash"
-      hideTryIt="true"
-      layout="responsive"
-    />
-  {% endif %}
-
-  {% if page.settings.api_document_url %}
-    <elements-api
-      apiDescriptionUrl="{{ page.settings.api_document_url }}"
-      router="hash"
-      hideTryIt = "true"
-      layout="responsive"
-      x-data
-    />
-  {% endif %}
-</section>
-
-
+<div id="main-content" class="elements-wrapper not-prose min-h-[calc(100vh-var(--header-height))]">
+  <div
+    data-controller="element-doc"
+    data-element-doc-url-value="{{ page.settings.api_document_url }}"
+    data-element-doc-content-value="{{ page.settings.api_document }}"
+    class='h-full'
+  >
+    <div class='flex justify-center items-center w-full h-full' data-element-doc-target="loading">
+      <div class='loading' class="text-gray-500">加载中...</div>
+    </div>
+  </div>
+</div>
 
 {% schema %}
   {
@@ -37,18 +26,18 @@
       {
         "id": "title",
         "type": "text",
-        "label": "t:schema.templates.page.api.settings.title.label",
+        "label": "t:settings_schema.generic.settings.title.label",
         "default": "Knowledge base site"
       },
       {
         "id": "api_document",
         "type": "textarea",
-        "label": "t:schema.templates.page.api.settings.api_document.label"
+        "label": "t:settings_schema.generic.settings.api_document.label"
       },
       {
         "id": "api_document_url",
         "type": "text",
-        "label": "t:schema.templates.page.api.settings.api_document_url.label"
+        "label": "t:settings_schema.generic.settings.api_document_url.label"
       }
     ]
   }

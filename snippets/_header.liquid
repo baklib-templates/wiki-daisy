@@ -26,14 +26,14 @@
           <div class="flex items-center gap-6">{{ header_menu_html }}</div>
         </div>
       {% else %}
-        <div class="hidden md:block w-px h-10 bg-base-300"></div>
+        {% comment %} <div class="hidden md:block w-px h-10 bg-base-300"></div>
         <div class="hidden md:flex flex-1 min-w-0">
           <div class="flex items-center gap-6">
             <ul class="menu menu-horizontal pl-0">
               <li><a class='flex items-center space-x-1 inner-block group hover:underline hover:text-primary' href="{{ statics['about'] }}">About</a></li>
             </ul>
           </div>
-        </div>
+        </div> {% endcomment %}
       {% endif %}
 
       <div class='md:hidden flex'>

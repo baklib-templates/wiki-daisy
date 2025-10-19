@@ -10,10 +10,11 @@
                })
              "
 >
-  <div class='w-full group'>
-    <div class='w-full grid grid-cols-[1fr_var(--right-sidebar-width)] gap-6 group-[.has-right_feature_block]:lg:grid-cols-[1fr_var(--right-sidebar-width)]'>
+  {% assign right_features_block = site.settings.features_one | presence %}
+  <div class='w-full group {% if right_features_block | present? %} has-right-feature-block {% endif %}'>
+    <div class='w-full grid grid-cols-[1fr] gap-6 group-[.has-right-feature-block]:lg:grid-cols-[1fr_var(--right-sidebar-width)]'>
       <!-- 中间内容 -->
-      <div class="flex flex-col px-4 md:pl-10 md:pr-0 py-6 overflow-x-hidden relative">
+      <div class="flex flex-col px-4 lg:px-10 group-[.has-right-feature-block]:md:pr-0 py-6 overflow-x-hidden relative">
         {% comment %} 背景 Hero, 可选 {% endcomment %}
         {% if true %}
           <div class="absolute inset-x-0 overflow-hidden top-0 -z-10 transform-gpu blur-3xl sm:-top-80" aria-hidden="true">
@@ -29,11 +30,10 @@
       </div>
 
       <!-- 右侧 feature block -->
-      {% assign right_features_block = site.settings.features_one | presence %}
       {% if right_features_block | present? %}
-        <div class="print:hidden hidden lg:block">
+        <div class="print:hidden hidden lg:block has-right-feature-block">
           <div class="sticky top-[calc(var(--header-height)_+_1.5rem)] h-[calc(100vh-var(--header-height)-4rem)] max-w-full w-full overflow-auto border-l border-base-200" data-toc-target="menu">
-            {{ site.settings.features_one }}
+            {{ right_features_block }}
           </div>
         </div>
       {% endif %}
