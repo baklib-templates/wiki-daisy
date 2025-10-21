@@ -72,19 +72,6 @@
       }
     },
     "page": {
-      "api": {
-        "settings": {
-          "title": {
-            "label": "Title"
-          },
-          "api_document": {
-            "label": "OpenAPI documentation"
-          },
-          "api_document_url": {
-            "label": "OpenAPI document URL"
-          }
-        }
-      },
       "channel": {
         "settings": {
           "content": {
@@ -100,6 +87,15 @@
         "content": {
           "label": "content",
           "info": "Synchronize from data source, non editable"
+        },
+        "title": {
+          "label": "Title"
+        },
+        "api_document": {
+          "label": "OpenAPI documentation"
+        },
+        "api_document_url": {
+          "label": "OpenAPI document URL"
         }
       }
     }

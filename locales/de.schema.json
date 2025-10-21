@@ -72,19 +72,6 @@
       }
     },
     "page": {
-      "api": {
-        "settings": {
-          "title": {
-            "label": "Titel"
-          },
-          "api_document": {
-            "label": "OpenAPI Dokumentation"
-          },
-          "api_document_url": {
-            "label": "OpenAPI Dokumentation URL"
-          }
-        }
-      },
       "channel": {
         "settings": {
           "content": {
@@ -100,6 +87,15 @@
         "content": {
           "label": "Inhalt",
           "info": "Synchronisierung von Datenquellen, nicht bearbeitbar"
+        },
+        "title": {
+          "label": "Titel"
+        },
+        "api_document": {
+          "label": "OpenAPI Dokumentation"
+        },
+        "api_document_url": {
+          "label": "OpenAPI Dokumentation URL"
         }
       }
     }

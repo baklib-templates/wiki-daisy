@@ -79,19 +79,15 @@
         "content": {
           "label": "内容",
           "info": "同步自数据源，不可编辑"
-        }
-      },
-      "api": {
-        "settings": {
-          "title": {
-            "label": "标题"
-          },
-          "api_document": {
-            "label": "OpenAPI文档"
-          },
-          "api_document_url": {
-            "label": "OpenAPI文档URL"
-          }
+        },
+        "title": {
+          "label": "标题"
+        },
+        "api_document": {
+          "label": "OpenAPI文档"
+        },
+        "api_document_url": {
+          "label": "OpenAPI文档URL"
         }
       },
       "channel": {

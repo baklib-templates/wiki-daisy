@@ -72,19 +72,6 @@
       }
     },
     "page": {
-      "api": {
-        "settings": {
-          "title": {
-            "label": "Titre"
-          },
-          "api_document": {
-            "label": "Documentation openapi"
-          },
-          "api_document_url": {
-            "label": "URL du document openapi"
-          }
-        }
-      },
       "channel": {
         "settings": {
           "content": {
@@ -100,6 +87,15 @@
         "content": {
           "label": "contenu",
           "info": "Synchronisation à partir de sources de données, non modifiable"
+        },
+        "title": {
+          "label": "Titre"
+        },
+        "api_document": {
+          "label": "Documentation openapi"
+        },
+        "api_document_url": {
+          "label": "URL du document openapi"
         }
       }
     }
